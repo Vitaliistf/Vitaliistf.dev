@@ -1,0 +1,72 @@
+{
+  "experience": [
+    {
+      "id": 1,
+      "company": "TechCorp Solutions",
+      "position": "Senior Full-Stack Developer",
+      "startDate": "2021",
+      "endDate": "Present",
+      "description": "Leading development of enterprise web applications, mentoring junior developers, and architecting scalable microservices solutions.",
+      "technologies": ["React", "Node.js", "AWS", "PostgreSQL", "Docker"],
+      "achievements": [
+        "Increased application performance by 40% through optimization",
+        "Led a team of 5 developers on major product redesign",
+        "Implemented CI/CD pipeline reducing deployment time by 60%"
+      ]
+    },
+    {
+      "id": 2,
+      "company": "StartupXYZ",
+      "position": "Full-Stack Developer",
+      "startDate": "2019",
+      "endDate": "2021",
+      "description": "Developed MVP and scaled product from 0 to 100k+ users. Built both frontend and backend systems from scratch.",
+      "technologies": ["Vue.js", "Python", "MongoDB", "Redis", "GCP"],
+      "achievements": [
+        "Built entire product infrastructure from ground up",
+        "Achieved 99.9% uptime across all services",
+        "Implemented real-time features serving 10k+ concurrent users"
+      ]
+    },
+    {
+      "id": 3,
+      "company": "Digital Agency Pro",
+      "position": "Frontend Developer",
+      "startDate": "2017",
+      "endDate": "2019",
+      "description": "Created responsive websites and web applications for various clients. Specialized in modern JavaScript frameworks and user experience optimization.",
+      "technologies": ["JavaScript", "React", "SCSS", "Webpack", "REST APIs"],
+      "achievements": [
+        "Delivered 25+ client projects on time and budget",
+        "Improved client website load times by average of 50%",
+        "Established frontend development standards for the team"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "id": 1,
+      "institution": "Lviv Polytechnic National University",
+      "degree": "Bachelor of Computer Engineering",
+      "startDate": "2021",
+      "endDate": "2025",
+      "description": "Focused on software engineering, algorithms, and database systems. Active in programming competitions and open-source projects."
+    }
+  ],
+  "certifications": [
+    {
+      "id": 1,
+      "name": "AWS Certified Solutions Architect",
+      "issuer": "Amazon Web Services",
+      "date": "2022",
+      "credential": "AWS-SAA-001"
+    },
+    {
+      "id": 2,
+      "name": "Google Cloud Professional Developer",
+      "issuer": "Google Cloud",
+      "date": "2021",
+      "credential": "GCP-PD-001"
+    }
+  ]
+}

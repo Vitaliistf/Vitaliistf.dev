@@ -1,0 +1,72 @@
+{
+  "personal": {
+    "name": "Vitalii Stefaniv",
+    "title": "Senior Full-Stack Developer",
+    "description": "crafting scalable web applications with modern technologies",
+    "email": "vitalii@stefaniv.dev",
+    "github": "https://github.com/vitaliistf",
+    "linkedin": "https://linkedin.com/in/vitaliistf",
+    "experience": "8+ Years",
+    "projects": "50+ Projects"
+  },
+  "about": {
+    "description": [
+      "With over 8 years of experience in full-stack development, I specialize in building robust, scalable applications that solve real-world problems. My passion lies in creating seamless user experiences backed by solid architecture.",
+      "I've led development teams, architected microservices handling millions of requests, and mentored junior developers. My expertise spans from frontend frameworks to cloud infrastructure."
+    ],
+    "specialties": [
+      {
+        "title": "Frontend Excellence",
+        "technologies": "React, Vue, Next.js, TypeScript, Tailwind CSS"
+      },
+      {
+        "title": "Backend Mastery",
+        "technologies": "Node.js, Python, PostgreSQL, MongoDB, Redis"
+      },
+      {
+        "title": "Cloud & DevOps",
+        "technologies": "AWS, Docker, Kubernetes, CI/CD, Terraform"
+      }
+    ]
+  },
+  "skills": [
+    { "name": "React/Next.js", "level": 95, "category": "frontend" },
+    { "name": "Node.js/Express", "level": 90, "category": "backend" },
+    { "name": "PostgreSQL/MongoDB", "level": 88, "category": "database" },
+    { "name": "TypeScript", "level": 92, "category": "language" },
+    { "name": "AWS/Docker", "level": 85, "category": "devops" },
+    { "name": "GraphQL/REST", "level": 87, "category": "api" }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "title": "E-Commerce Platform",
+      "description": "Full-stack e-commerce solution with microservices architecture, real-time inventory, and payment processing.",
+      "tech": ["React", "Node.js", "PostgreSQL", "Redis", "AWS"],
+      "gradient": "from-purple-600 to-pink-600",
+      "github": "https://github.com/vitaliistf/ecommerce-platform",
+      "demo": "https://ecommerce-demo.stefaniv.dev",
+      "featured": true
+    },
+    {
+      "id": 2,
+      "title": "Real-time Analytics Dashboard",
+      "description": "Data visualization platform processing millions of events per day with WebSocket connections and ML insights.",
+      "tech": ["Next.js", "Python", "ClickHouse", "WebSocket", "D3.js"],
+      "gradient": "from-blue-600 to-cyan-600",
+      "github": "https://github.com/vitaliistf/analytics-dashboard",
+      "demo": "https://analytics-demo.stefaniv.dev",
+      "featured": true
+    },
+    {
+      "id": 3,
+      "title": "AI-Powered Content Management",
+      "description": "CMS with AI-driven content generation, automated SEO optimization, and collaborative editing features.",
+      "tech": ["Vue.js", "FastAPI", "OpenAI", "MongoDB", "Docker"],
+      "gradient": "from-green-600 to-teal-600",
+      "github": "https://github.com/vitaliistf/ai-cms",
+      "demo": "https://cms-demo.stefaniv.dev",
+      "featured": true
+    }
+  ]
+}

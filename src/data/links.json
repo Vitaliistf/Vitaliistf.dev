@@ -1,0 +1,59 @@
+{
+  "profile": {
+    "name": "Vitalii Stefaniv",
+    "title": "Full-Stack Developer",
+    "avatar": "/logo.png",
+    "bio": "Building scalable web applications with modern technologies"
+  },
+  "links": [
+    {
+      "id": 1,
+      "title": "Portfolio",
+      "url": "/",
+      "icon": "globe",
+      "featured": true
+    },
+    {
+      "id": 2,
+      "title": "GitHub",
+      "url": "https://github.com/vitaliistf",
+      "icon": "github",
+      "featured": true
+    },
+    {
+      "id": 3,
+      "title": "LinkedIn",
+      "url": "https://linkedin.com/in/vitaliistf",
+      "icon": "linkedin",
+      "featured": true
+    },
+    {
+      "id": 4,
+      "title": "Email",
+      "url": "mailto:deosplayt@gmail.com",
+      "icon": "mail",
+      "featured": true
+    },
+    {
+      "id": 5,
+      "title": "Resume/CV",
+      "url": "/resume.pdf",
+      "icon": "file-text",
+      "featured": false
+    },
+    {
+      "id": 6,
+      "title": "Blog",
+      "url": "https://blog.stefaniv.dev",
+      "icon": "book",
+      "featured": false
+    },
+    {
+      "id": 7,
+      "title": "Twitter",
+      "url": "https://twitter.com/vitaliistf",
+      "icon": "twitter",
+      "featured": false
+    }
+  ]
+}
