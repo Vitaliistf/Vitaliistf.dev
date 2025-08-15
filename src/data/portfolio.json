@@ -30,12 +30,78 @@
     ]
   },
   "skills": [
-    { "name": "React/Next.js", "level": 95, "category": "frontend" },
-    { "name": "Node.js/Express", "level": 90, "category": "backend" },
-    { "name": "PostgreSQL/MongoDB", "level": 88, "category": "database" },
-    { "name": "TypeScript", "level": 92, "category": "language" },
-    { "name": "AWS/Docker", "level": 85, "category": "devops" },
-    { "name": "GraphQL/REST", "level": 87, "category": "api" }
+    {
+      "name": "React/Next.js",
+      "level": 95,
+      "category": "frontend",
+      "subskills": [
+        { "name": "React Hooks", "icon": "hook" },
+        { "name": "Redux/Zustand", "icon": "database" },
+        { "name": "Next.js App Router", "icon": "route" },
+        { "name": "Server Components", "icon": "server" },
+        { "name": "Tailwind CSS", "icon": "palette" }
+      ]
+    },
+    {
+      "name": "Node.js/Express",
+      "level": 90,
+      "category": "backend",
+      "subskills": [
+        { "name": "Express.js", "icon": "zap" },
+        { "name": "NestJS", "icon": "layers" },
+        { "name": "Microservices", "icon": "network" },
+        { "name": "Authentication", "icon": "shield" },
+        { "name": "WebSockets", "icon": "radio" }
+      ]
+    },
+    {
+      "name": "PostgreSQL/MongoDB",
+      "level": 88,
+      "category": "database",
+      "subskills": [
+        { "name": "Query Optimization", "icon": "search" },
+        { "name": "Database Design", "icon": "database" },
+        { "name": "Redis Caching", "icon": "zap" },
+        { "name": "Prisma ORM", "icon": "layers" },
+        { "name": "Data Migration", "icon": "refresh" }
+      ]
+    },
+    {
+      "name": "TypeScript",
+      "level": 92,
+      "category": "language",
+      "subskills": [
+        { "name": "Advanced Types", "icon": "type" },
+        { "name": "Generics", "icon": "box" },
+        { "name": "Decorators", "icon": "star" },
+        { "name": "Module Systems", "icon": "package" },
+        { "name": "Type Guards", "icon": "shield" }
+      ]
+    },
+    {
+      "name": "AWS/Docker",
+      "level": 85,
+      "category": "devops",
+      "subskills": [
+        { "name": "Container Orchestration", "icon": "container" },
+        { "name": "CI/CD Pipelines", "icon": "workflow" },
+        { "name": "AWS Lambda", "icon": "zap" },
+        { "name": "Kubernetes", "icon": "settings" },
+        { "name": "Infrastructure as Code", "icon": "code" }
+      ]
+    },
+    {
+      "name": "GraphQL/REST",
+      "level": 87,
+      "category": "api",
+      "subskills": [
+        { "name": "Apollo GraphQL", "icon": "globe" },
+        { "name": "API Design", "icon": "layout" },
+        { "name": "Rate Limiting", "icon": "clock" },
+        { "name": "Documentation", "icon": "file-text" },
+        { "name": "Testing", "icon": "check-circle" }
+      ]
+    }
   ],
   "projects": [
     {
