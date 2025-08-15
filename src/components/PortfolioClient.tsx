@@ -1,15 +1,16 @@
-'use client'
+"use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
-import AnimatedBackground from './AnimatedBackground';
-import Navigation from './Navigation';
-import HeroSection from './HeroSection';
-import AboutSection from './AboutSection';
-import SkillsSection from './SkillsSection';
-import ProjectsSection from './ProjectsSection';
-import ExperienceSection from './ExperienceSection';
-import ContactSection from './ContactSection';
+import AnimatedBackground from "./AnimatedBackground";
+import Navigation from "./Navigation";
+import HeroSection from "./HeroSection";
+import AboutSection from "./AboutSection";
+import SkillsSection from "./SkillsSection";
+import ProjectsSection from "./ProjectsSection";
+import ExperienceSection from "./ExperienceSection";
+import TelegramSection from "./TelegramSection";
+import ContactSection from "./ContactSection";
 
 interface PortfolioClientProps {
   portfolioData: {
@@ -29,6 +30,21 @@ interface PortfolioClientProps {
         title: string;
         technologies: string;
       }>;
+    };
+    telegram: {
+      title: string;
+      description: string;
+      channelName: string;
+      channelUrl: string;
+      highlights: Array<{
+        title: string;
+        description: string;
+        icon: string;
+      }>;
+      stats: {
+        frequency: string;
+        content: string;
+      };
     };
     skills: Array<{
       name: string;
@@ -75,88 +91,101 @@ interface PortfolioClientProps {
   };
 }
 
-const PortfolioClient = ({ portfolioData, experienceData }: PortfolioClientProps) => {
-  const [activeSection, setActiveSection] = useState('hero');
+const PortfolioClient = ({
+  portfolioData,
+  experienceData,
+}: PortfolioClientProps) => {
+  const [activeSection, setActiveSection] = useState("hero");
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['hero', 'about', 'skills', 'projects', 'experience', 'contact'];
+      const sections = [
+        "hero",
+        "about",
+        "skills",
+        "projects",
+        "experience",
+        "telegram",
+        "contact",
+      ];
       const scrollY = window.scrollY;
-      
-      sections.forEach(section => {
+
+      sections.forEach((section) => {
         const element = document.getElementById(section);
         if (element) {
           const { offsetTop, offsetHeight } = element;
-          if (scrollY >= offsetTop - 200 && scrollY < offsetTop + offsetHeight - 200) {
+          if (
+            scrollY >= offsetTop - 200 &&
+            scrollY < offsetTop + offsetHeight - 200
+          ) {
             setActiveSection(section);
           }
         }
       });
     };
 
-    window.addEventListener('scroll', handleScroll);
-    
+    window.addEventListener("scroll", handleScroll);
+
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   const scrollToSection = (sectionId: string) => {
-  const element = document.getElementById(sectionId);
+    const element = document.getElementById(sectionId);
     if (element) {
-      const offset = 40; 
-      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+      const offset = 40;
+      const elementPosition =
+        element.getBoundingClientRect().top + window.scrollY;
       const offsetPosition = elementPosition - offset;
 
       window.scrollTo({
         top: offsetPosition,
-        behavior: 'smooth'
+        behavior: "smooth",
       });
     }
   };
 
-
   return (
     <div className="min-h-screen bg-[rgb(36,36,36)] text-white relative overflow-x-hidden">
       <AnimatedBackground />
-      
-      <Navigation 
-        activeSection={activeSection} 
-        scrollToSection={scrollToSection} 
+
+      <Navigation
+        activeSection={activeSection}
+        scrollToSection={scrollToSection}
       />
-      
-      <HeroSection 
-        personal={portfolioData.personal} 
-        scrollToSection={scrollToSection} 
+
+      <HeroSection
+        personal={portfolioData.personal}
+        scrollToSection={scrollToSection}
       />
-      
-      <AboutSection 
+
+      <AboutSection
         about={portfolioData.about}
         personal={portfolioData.personal}
       />
-      
-      <SkillsSection 
-        skills={portfolioData.skills} 
-      />
-      
-      <ProjectsSection 
-        projects={portfolioData.projects} 
-      />
-      
-      <ExperienceSection 
+
+      <SkillsSection skills={portfolioData.skills} />
+
+      <ProjectsSection projects={portfolioData.projects} />
+
+      <ExperienceSection
         experience={experienceData.experience}
         education={experienceData.education}
         certifications={experienceData.certifications}
       />
-      
-      <ContactSection 
-        personal={portfolioData.personal} 
-      />
+
+      <TelegramSection telegram={portfolioData.telegram} />
+
+      <ContactSection personal={portfolioData.personal} />
 
       {/* Footer */}
       <footer className="py-8 relative z-10 border-t border-[rgb(230,170,120)]/20">
         <div className="max-w-6xl mx-auto px-6 text-center">
-          <p className="text-white/60">© {new Date().getFullYear()} {portfolioData.personal.name}. Crafted with passion and code.</p>
+          <p className="text-white/60">
+            © {new Date().getFullYear()} {portfolioData.personal.name}. Crafted
+            with passion and code.
+          </p>
         </div>
       </footer>
     </div>

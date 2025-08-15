@@ -29,6 +29,33 @@
       }
     ]
   },
+  "telegram": {
+    "title": "Tech Insights & Discussions",
+    "description": "Join my Telegram channel where I share insights about modern web development, react to industry trends, and discuss emerging technologies. A space for developers to stay updated and engaged.",
+    "channelName": "@vitaliistf_dev",
+    "channelUrl": "https://t.me/vitaliistf_dev",
+    "highlights": [
+      {
+        "title": "Latest Tech Trends",
+        "description": "Analysis and commentary on cutting-edge technologies",
+        "icon": "trending-up"
+      },
+      {
+        "title": "Development Tips",
+        "description": "Practical advice and best practices from real projects",
+        "icon": "lightbulb"
+      },
+      {
+        "title": "Industry Discussions",
+        "description": "Reactions and thoughts on major tech announcements",
+        "icon": "message-circle"
+      }
+    ],
+    "stats": {
+      "frequency": "Daily Updates",
+      "content": "Tech Analysis & Tips"
+    }
+  },
   "skills": [
     {
       "name": "React/Next.js",
