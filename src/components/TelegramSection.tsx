@@ -118,7 +118,7 @@ const TelegramSection = ({ telegram }: TelegramSectionProps) => {
             {/* Right side - Highlights */}
             <div className="space-y-4 mt-8 lg:mt-0">
               <h4 className="text-xl font-semibold text-[rgb(230,170,120)] mb-6 text-center lg:text-left">
-                What You'll Find
+                What You&apos;ll Find
               </h4>
               {telegram.highlights.map((highlight, index) => (
                 <div
