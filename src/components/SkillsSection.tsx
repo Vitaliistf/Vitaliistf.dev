@@ -1,6 +1,7 @@
-"use client";
+'use client';
 
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
+import Section from './Section';
 import {
   Code,
   Database,
@@ -26,7 +27,7 @@ import {
   CheckCircle,
   Palette,
   Route,
-} from "lucide-react";
+} from 'lucide-react';
 
 interface Subskill {
   name: string;
@@ -46,17 +47,17 @@ interface SkillsSectionProps {
 
 const getSkillIcon = (category: string) => {
   switch (category) {
-    case "frontend":
+    case 'frontend':
       return <Code className="w-6 h-6" />;
-    case "backend":
+    case 'backend':
       return <Server className="w-6 h-6" />;
-    case "database":
+    case 'database':
       return <Database className="w-6 h-6" />;
-    case "language":
+    case 'language':
       return <Terminal className="w-6 h-6" />;
-    case "devops":
+    case 'devops':
       return <Layers className="w-6 h-6" />;
-    case "api":
+    case 'api':
       return <Globe className="w-6 h-6" />;
     default:
       return <Code className="w-6 h-6" />;
@@ -64,58 +65,58 @@ const getSkillIcon = (category: string) => {
 };
 
 const getSubskillIcon = (iconName: string) => {
-  const iconProps = { className: "w-4 h-4" };
+  const iconProps = { className: 'w-4 h-4' };
 
   switch (iconName) {
-    case "hook":
+    case 'hook':
       return <Code {...iconProps} />;
-    case "database":
+    case 'database':
       return <Database {...iconProps} />;
-    case "route":
+    case 'route':
       return <Route {...iconProps} />;
-    case "server":
+    case 'server':
       return <Server {...iconProps} />;
-    case "palette":
+    case 'palette':
       return <Palette {...iconProps} />;
-    case "zap":
+    case 'zap':
       return <Zap {...iconProps} />;
-    case "layers":
+    case 'layers':
       return <Layers {...iconProps} />;
-    case "network":
+    case 'network':
       return <Network {...iconProps} />;
-    case "shield":
+    case 'shield':
       return <Shield {...iconProps} />;
-    case "radio":
+    case 'radio':
       return <Radio {...iconProps} />;
-    case "search":
+    case 'search':
       return <Search {...iconProps} />;
-    case "refresh":
+    case 'refresh':
       return <RefreshCw {...iconProps} />;
-    case "type":
+    case 'type':
       return <Type {...iconProps} />;
-    case "box":
+    case 'box':
       return <Box {...iconProps} />;
-    case "star":
+    case 'star':
       return <Star {...iconProps} />;
-    case "package":
+    case 'package':
       return <Package {...iconProps} />;
-    case "container":
+    case 'container':
       return <Box {...iconProps} />;
-    case "workflow":
+    case 'workflow':
       return <Workflow {...iconProps} />;
-    case "settings":
+    case 'settings':
       return <Settings {...iconProps} />;
-    case "code":
+    case 'code':
       return <Code {...iconProps} />;
-    case "globe":
+    case 'globe':
       return <Globe {...iconProps} />;
-    case "layout":
+    case 'layout':
       return <Layout {...iconProps} />;
-    case "clock":
+    case 'clock':
       return <Clock {...iconProps} />;
-    case "file-text":
+    case 'file-text':
       return <FileText {...iconProps} />;
-    case "check-circle":
+    case 'check-circle':
       return <CheckCircle {...iconProps} />;
     default:
       return <Code {...iconProps} />;
@@ -179,57 +180,55 @@ const SkillsSection = ({ skills }: SkillsSectionProps) => {
       }
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleResize);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
     };
   }, [tooltipElement, hoveredSkill]);
 
   return (
-    <section id="skills" className="py-20 relative z-10">
-      <div className="max-w-6xl mx-auto px-6">
-        <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center bg-gradient-to-r from-[rgb(230,170,120)] to-white bg-clip-text text-transparent">
-          Technical Skills
-        </h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {skills.map((skill, index) => (
-            <div
-              key={skill.name}
-              className="backdrop-blur-md bg-white/5 rounded-xl p-6 border border-[rgb(230,170,120)]/20 hover:border-[rgb(230,170,120)]/40 transition-all duration-500 hover:scale-105 group relative cursor-pointer"
-              style={{ animationDelay: `${index * 100}ms` }}
-              onMouseEnter={(e) =>
-                skill.subskills && handleMouseEnter(skill.name, e)
-              }
-              onMouseLeave={handleMouseLeave}
-            >
-              <div className="flex items-center mb-4">
-                <div className="text-[rgb(230,170,120)] mr-3 group-hover:scale-110 transition-transform duration-300">
-                  {getSkillIcon(skill.category)}
-                </div>
-                <h3 className="text-lg font-semibold">{skill.name}</h3>
+    <Section id="skills">
+      <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center bg-gradient-to-r from-[rgb(230,170,120)] to-white bg-clip-text text-transparent">
+        Technical Skills
+      </h2>
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {skills.map((skill, index) => (
+          <div
+            key={skill.name}
+            className="backdrop-blur-md bg-white/5 rounded-xl p-6 border border-[rgb(230,170,120)]/20 hover:border-[rgb(230,170,120)]/40 transition-all duration-500 hover:scale-105 group relative cursor-pointer"
+            style={{ animationDelay: `${index * 100}ms` }}
+            onMouseEnter={(e) =>
+              skill.subskills && handleMouseEnter(skill.name, e)
+            }
+            onMouseLeave={handleMouseLeave}
+          >
+            <div className="flex items-center mb-4">
+              <div className="text-[rgb(230,170,120)] mr-3 group-hover:scale-110 transition-transform duration-300">
+                {getSkillIcon(skill.category)}
               </div>
-              <div className="w-full bg-white/10 rounded-full h-2 mb-2">
-                <div
-                  className="bg-gradient-to-r from-[rgb(230,170,120)] to-[rgb(230,170,120)]/60 h-2 rounded-full transition-all duration-1000 ease-out"
-                  style={{ width: `${skill.level}%` }}
-                ></div>
-              </div>
-              <div className="flex items-center justify-between">
-                <div className="text-sm text-white/60">
-                  {skill.level}% Proficiency
-                </div>
-                {skill.subskills && (
-                  <div className="text-xs text-[rgb(230,170,120)]/60 group-hover:text-[rgb(230,170,120)] transition-colors duration-300">
-                    Hover for details
-                  </div>
-                )}
-              </div>
+              <h3 className="text-lg font-semibold">{skill.name}</h3>
             </div>
-          ))}
-        </div>
+            <div className="w-full bg-white/10 rounded-full h-2 mb-2">
+              <div
+                className="bg-gradient-to-r from-[rgb(230,170,120)] to-[rgb(230,170,120)]/60 h-2 rounded-full transition-all duration-1000 ease-out"
+                style={{ width: `${skill.level}%` }}
+              ></div>
+            </div>
+            <div className="flex items-center justify-between">
+              <div className="text-sm text-white/60">
+                {skill.level}% Proficiency
+              </div>
+              {skill.subskills && (
+                <div className="text-xs text-[rgb(230,170,120)]/60 group-hover:text-[rgb(230,170,120)] transition-colors duration-300">
+                  Hover for details
+                </div>
+              )}
+            </div>
+          </div>
+        ))}
       </div>
 
       {/* Tooltip */}
@@ -239,7 +238,7 @@ const SkillsSection = ({ skills }: SkillsSectionProps) => {
           style={{
             left: `${tooltipPosition.x}px`,
             top: `${tooltipPosition.y}px`,
-            transform: "translate(-50%, -100%)",
+            transform: 'translate(-50%, -100%)',
           }}
         >
           <div className="backdrop-blur-md bg-[rgb(36,36,36)]/90 border border-[rgb(230,170,120)]/30 rounded-xl p-4 shadow-2xl animate-in fade-in slide-in-from-bottom-2 duration-200">
@@ -268,8 +267,8 @@ const SkillsSection = ({ skills }: SkillsSectionProps) => {
             <div
               className={`absolute left-1/2 transform -translate-x-1/2 ${
                 tooltipPosition.y > 150
-                  ? "bottom-0 translate-y-full"
-                  : "top-0 -translate-y-full rotate-180"
+                  ? 'bottom-0 translate-y-full'
+                  : 'top-0 -translate-y-full rotate-180'
               }`}
             >
               <div className="w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-[rgb(230,170,120)]/30"></div>
@@ -277,7 +276,7 @@ const SkillsSection = ({ skills }: SkillsSectionProps) => {
           </div>
         </div>
       )}
-    </section>
+    </Section>
   );
 };
 

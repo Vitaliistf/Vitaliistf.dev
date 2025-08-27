@@ -71,7 +71,7 @@ const HeroSection = ({ personal, scrollToSection }: HeroSectionProps) => {
           <div className="relative">
             <div className="absolute -inset-6 rounded-3xl bg-[rgb(230,170,120)]/10 blur-2xl" />
             <div className="relative rounded-3xl border border-[rgb(230,170,120)]/30 bg-white/5 backdrop-blur-sm">
-              <div className="relative rounded-2xl overflow-hidden h-[380px] sm:h-[40px] md:h-[520px] flex items-end justify-center">
+              <div className="relative rounded-2xl overflow-hidden h-[380px] sm:h-[460px] md:h-[520px] flex items-end justify-center">
                 <Image
                   src="/ms-nobg.png"
                   alt="Portrait"
