@@ -56,97 +56,100 @@ const getHighlightIcon = (iconName: string) => {
 const TelegramSection = ({ telegram }: TelegramSectionProps) => {
   const [isHovered, setIsHovered] = useState(false);
 
+  // Ensure the grid fills evenly by adding a tasteful extra block if needed
+  const displayHighlights: TelegramHighlight[] =
+    telegram.highlights.length % 2 === 1
+      ? [
+          ...telegram.highlights,
+          {
+            title: 'Community Q&A',
+            description: 'Ask questions, share knowledge, and get feedback.',
+            icon: 'sparkles',
+          },
+        ]
+      : telegram.highlights;
+
   return (
     <Section id="telegram">
-      <GlassCard className="p-8 md:p-12">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-[rgb(230,170,120)] to-white bg-clip-text text-transparent">
+      <GlassCard className="p-6 md:p-8">
+        {/* Header */}
+        <div className="text-center mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold mb-3 bg-gradient-to-r from-[rgb(230,170,120)] to-white bg-clip-text text-transparent">
             {telegram.title}
           </h2>
-          <p className="text-lg text-white/80 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base md:text-lg text-white/80 max-w-2xl mx-auto leading-relaxed">
             {telegram.description}
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          {/* Left side - Channel info */}
-          <div className="space-y-6">
-            <div className="flex flex-col sm:flex-row sm:items-center space-y-4 sm:space-y-0 sm:space-x-4">
-              <div className="backdrop-blur-md bg-[rgb(230,170,120)]/10 rounded-xl p-4 border border-[rgb(230,170,120)]/20 w-fit">
-                <Send className="w-8 h-8 text-[rgb(230,170,120)]" />
-              </div>
-              <div className="flex-1">
-                <h3 className="text-xl sm:text-2xl font-bold text-white">
-                  {telegram.channelName}
-                </h3>
-                <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 mt-2 space-y-1 sm:space-y-0">
-                  <div className="flex items-center space-x-2 text-sm text-white/60">
-                    <Calendar className="w-4 h-4" />
-                    <span>{telegram.stats.frequency}</span>
-                  </div>
-                  <div className="flex items-center space-x-2 text-sm text-white/60">
-                    <Users className="w-4 h-4" />
-                    <span>{telegram.stats.content}</span>
-                  </div>
-                </div>
-              </div>
+        {/* Channel row */}
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+          <div className="flex items-center gap-4">
+            <div className="backdrop-blur-md bg-[rgb(230,170,120)]/10 rounded-xl p-3 border border-[rgb(230,170,120)]/20 w-fit">
+              <Send className="w-6 h-6 text-[rgb(230,170,120)]" />
             </div>
-
-            {/* CTA Button */}
-            <div className="pt-6">
-              <a
-                href={telegram.channelUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-full sm:w-auto space-x-3 px-6 sm:px-8 py-4 bg-gradient-to-r from-[rgb(230,170,120)] to-[rgb(230,170,120)]/80 rounded-xl font-semibold text-white hover:from-[rgb(230,170,120)]/90 hover:to-[rgb(230,170,120)]/70 transition-all duration-300 hover:scale-105 hover:shadow-lg group"
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
-              >
-                <Send
-                  className={`w-5 h-5 transition-transform duration-300 ${
-                    isHovered ? 'translate-x-1' : ''
-                  }`}
-                />
-                <span>Join Channel</span>
-                <ExternalLink className="w-4 h-4 opacity-70" />
-              </a>
-              <p className="text-sm text-white/50 mt-3 text-center sm:text-left">
-                Free to join • No spam • Quality content only
-              </p>
+            <div>
+              <h3 className="text-lg sm:text-xl font-bold text-white">
+                {telegram.channelName}
+              </h3>
+              <div className="flex items-center flex-wrap gap-x-4 gap-y-1 mt-1 text-sm text-white/60">
+                <span className="inline-flex items-center gap-2">
+                  <Calendar className="w-4 h-4" />
+                  {telegram.stats.frequency}
+                </span>
+                <span className="inline-flex items-center gap-2">
+                  <Users className="w-4 h-4" />
+                  {telegram.stats.content}
+                </span>
+              </div>
             </div>
           </div>
-
-          {/* Right side - Highlights */}
-          <div className="space-y-4 mt-8 lg:mt-0">
-            <h4 className="text-xl font-semibold text-[rgb(230,170,120)] mb-6 text-center lg:text-left">
-              What You&apos;ll Find
-            </h4>
-            {telegram.highlights.map((highlight, index) => (
-              <div
-                key={highlight.title}
-                className="backdrop-blur-md bg-white/5 rounded-xl p-4 sm:p-6 border border-[rgb(230,170,120)]/10 hover:border-[rgb(230,170,120)]/30 transition-all duration-500 hover:scale-[1.02] group"
-                style={{ animationDelay: `${index * 150}ms` }}
-              >
-                <div className="flex items-start space-x-3 sm:space-x-4">
-                  <div className="text-[rgb(230,170,120)] mt-1 group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
-                    {getHighlightIcon(highlight.icon)}
-                  </div>
-                  <div className="flex-1">
-                    <h5 className="text-lg font-semibold text-white mb-2">
-                      {highlight.title}
-                    </h5>
-                    <p className="text-white/70 leading-relaxed text-sm sm:text-base">
-                      {highlight.description}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
+          <div className="md:ml-6">
+            <a
+              href={telegram.channelUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center space-x-3 px-5 py-3 bg-gradient-to-r from-[rgb(230,170,120)] to-[rgb(230,170,120)]/80 rounded-lg font-semibold text-white hover:from-[rgb(230,170,120)]/90 hover:to-[rgb(230,170,120)]/70 transition-all duration-300 hover:scale-105 hover:shadow-lg group"
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+            >
+              <Send
+                className={`w-5 h-5 transition-transform duration-300 ${
+                  isHovered ? 'translate-x-1' : ''
+                }`}
+              />
+              <span>Join Channel</span>
+              <ExternalLink className="w-4 h-4 opacity-70" />
+            </a>
           </div>
         </div>
 
+        {/* Highlights grid */}
+        <div className="grid sm:grid-cols-2 gap-4">
+          {displayHighlights.map((highlight) => (
+            <div
+              key={highlight.title}
+              className="backdrop-blur-md bg-white/5 rounded-lg p-4 border border-[rgb(230,170,120)]/10 hover:border-[rgb(230,170,120)]/30 transition-colors duration-300 group"
+            >
+              <div className="flex items-start gap-3">
+                <div className="text-[rgb(230,170,120)] mt-0.5 group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
+                  {getHighlightIcon(highlight.icon)}
+                </div>
+                <div className="flex-1">
+                  <h5 className="text-base font-semibold text-white mb-1">
+                    {highlight.title}
+                  </h5>
+                  <p className="text-white/70 leading-relaxed text-sm">
+                    {highlight.description}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
         {/* Bottom decorative element */}
-        <div className="mt-12 flex justify-center">
+        <div className="mt-8 flex justify-center">
           <div className="flex items-center space-x-2 text-white/30">
             <div className="w-8 h-[1px] bg-gradient-to-r from-transparent to-[rgb(230,170,120)]/30"></div>
             <Sparkles className="w-4 h-4" />
