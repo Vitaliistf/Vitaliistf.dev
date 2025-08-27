@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { Zap, Terminal } from 'lucide-react';
 
@@ -27,27 +27,39 @@ const AboutSection = ({ about, personal }: AboutSectionProps) => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               {about.description.map((paragraph, index) => (
-                <p key={index} className="text-lg text-white/80 mb-6 leading-relaxed">
+                <p
+                  key={index}
+                  className="text-lg text-white/80 mb-6 leading-relaxed"
+                >
                   {paragraph}
                 </p>
               ))}
               <div className="flex space-x-4">
                 <div className="backdrop-blur-md bg-[rgb(230,170,120)]/10 rounded-lg p-4 border border-[rgb(230,170,120)]/20">
                   <Zap className="w-8 h-8 text-[rgb(230,170,120)] mb-2" />
-                  <div className="text-sm font-semibold">{personal.experience}</div>
+                  <div className="text-sm font-semibold">
+                    {personal.experience}
+                  </div>
                   <div className="text-xs text-white/60">Experience</div>
                 </div>
                 <div className="backdrop-blur-md bg-[rgb(230,170,120)]/10 rounded-lg p-4 border border-[rgb(230,170,120)]/20">
                   <Terminal className="w-8 h-8 text-[rgb(230,170,120)] mb-2" />
-                  <div className="text-sm font-semibold">{personal.projects}</div>
+                  <div className="text-sm font-semibold">
+                    {personal.projects}
+                  </div>
                   <div className="text-xs text-white/60">Completed</div>
                 </div>
               </div>
             </div>
             <div className="space-y-4">
               {about.specialties.map((specialty, index) => (
-                <div key={index} className="backdrop-blur-md bg-white/5 rounded-lg p-6 border border-[rgb(230,170,120)]/20 hover:border-[rgb(230,170,120)]/40 transition-all duration-300">
-                  <h3 className="text-xl font-semibold text-[rgb(230,170,120)] mb-2">{specialty.title}</h3>
+                <div
+                  key={index}
+                  className="backdrop-blur-md bg-white/5 rounded-lg p-6 border border-[rgb(230,170,120)]/20 hover:border-[rgb(230,170,120)]/40 transition-all duration-300"
+                >
+                  <h3 className="text-xl font-semibold text-[rgb(230,170,120)] mb-2">
+                    {specialty.title}
+                  </h3>
                   <p className="text-white/70">{specialty.technologies}</p>
                 </div>
               ))}

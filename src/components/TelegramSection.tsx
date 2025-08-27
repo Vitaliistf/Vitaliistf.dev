@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useState } from "react";
+import { useState } from 'react';
 import {
   Send,
   TrendingUp,
@@ -10,7 +10,7 @@ import {
   Calendar,
   ExternalLink,
   Sparkles,
-} from "lucide-react";
+} from 'lucide-react';
 
 interface TelegramHighlight {
   title: string;
@@ -37,14 +37,14 @@ interface TelegramSectionProps {
 }
 
 const getHighlightIcon = (iconName: string) => {
-  const iconProps = { className: "w-6 h-6" };
+  const iconProps = { className: 'w-6 h-6' };
 
   switch (iconName) {
-    case "trending-up":
+    case 'trending-up':
       return <TrendingUp {...iconProps} />;
-    case "lightbulb":
+    case 'lightbulb':
       return <Lightbulb {...iconProps} />;
-    case "message-circle":
+    case 'message-circle':
       return <MessageCircle {...iconProps} />;
     default:
       return <Sparkles {...iconProps} />;
@@ -103,7 +103,7 @@ const TelegramSection = ({ telegram }: TelegramSectionProps) => {
                 >
                   <Send
                     className={`w-5 h-5 transition-transform duration-300 ${
-                      isHovered ? "translate-x-1" : ""
+                      isHovered ? 'translate-x-1' : ''
                     }`}
                   />
                   <span>Join Channel</span>
@@ -118,7 +118,7 @@ const TelegramSection = ({ telegram }: TelegramSectionProps) => {
             {/* Right side - Highlights */}
             <div className="space-y-4 mt-8 lg:mt-0">
               <h4 className="text-xl font-semibold text-[rgb(230,170,120)] mb-6 text-center lg:text-left">
-                What You&apos;ll Find
+                What You'll Find
               </h4>
               {telegram.highlights.map((highlight, index) => (
                 <div
