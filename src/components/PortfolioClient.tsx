@@ -1,16 +1,15 @@
-"use client";
+'use client';
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
-import AnimatedBackground from "./AnimatedBackground";
-import Navigation from "./Navigation";
-import HeroSection from "./HeroSection";
-import AboutSection from "./AboutSection";
-import SkillsSection from "./SkillsSection";
-import ProjectsSection from "./ProjectsSection";
-import ExperienceSection from "./ExperienceSection";
-import TelegramSection from "./TelegramSection";
-import ContactSection from "./ContactSection";
+import AnimatedBackground from './AnimatedBackground';
+import Navigation from './Navigation';
+import HeroSection from './HeroSection';
+import AboutSection from './AboutSection';
+import SkillsSection from './SkillsSection';
+import ExperienceSection from './ExperienceSection';
+import TelegramSection from './TelegramSection';
+import ContactSection from './ContactSection';
 
 interface PortfolioClientProps {
   portfolioData: {
@@ -95,18 +94,17 @@ const PortfolioClient = ({
   portfolioData,
   experienceData,
 }: PortfolioClientProps) => {
-  const [activeSection, setActiveSection] = useState("hero");
+  const [activeSection, setActiveSection] = useState('hero');
 
   useEffect(() => {
     const handleScroll = () => {
       const sections = [
-        "hero",
-        "about",
-        "skills",
-        "projects",
-        "experience",
-        "telegram",
-        "contact",
+        'hero',
+        'about',
+        'skills',
+        'experience',
+        'telegram',
+        'contact',
       ];
       const scrollY = window.scrollY;
 
@@ -124,10 +122,10 @@ const PortfolioClient = ({
       });
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
@@ -141,7 +139,7 @@ const PortfolioClient = ({
 
       window.scrollTo({
         top: offsetPosition,
-        behavior: "smooth",
+        behavior: 'smooth',
       });
     }
   };
@@ -166,8 +164,6 @@ const PortfolioClient = ({
       />
 
       <SkillsSection skills={portfolioData.skills} />
-
-      <ProjectsSection projects={portfolioData.projects} />
 
       <ExperienceSection
         experience={experienceData.experience}

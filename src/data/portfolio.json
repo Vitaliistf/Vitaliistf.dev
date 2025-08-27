@@ -2,7 +2,7 @@
   "personal": {
     "name": "Vitalii Stefaniv",
     "title": "Senior Full-Stack Developer",
-    "description": "crafting scalable web applications with modern technologies",
+    "description": "crafting scalable web applications using modern technologies",
     "email": "vitalii@stefaniv.dev",
     "github": "https://github.com/vitaliistf",
     "linkedin": "https://linkedin.com/in/vitaliistf",
@@ -128,38 +128,6 @@
         { "name": "Documentation", "icon": "file-text" },
         { "name": "Testing", "icon": "check-circle" }
       ]
-    }
-  ],
-  "projects": [
-    {
-      "id": 1,
-      "title": "E-Commerce Platform",
-      "description": "Full-stack e-commerce solution with microservices architecture, real-time inventory, and payment processing.",
-      "tech": ["React", "Node.js", "PostgreSQL", "Redis", "AWS"],
-      "gradient": "from-purple-600 to-pink-600",
-      "github": "https://github.com/vitaliistf/ecommerce-platform",
-      "demo": "https://ecommerce-demo.stefaniv.dev",
-      "featured": true
-    },
-    {
-      "id": 2,
-      "title": "Real-time Analytics Dashboard",
-      "description": "Data visualization platform processing millions of events per day with WebSocket connections and ML insights.",
-      "tech": ["Next.js", "Python", "ClickHouse", "WebSocket", "D3.js"],
-      "gradient": "from-blue-600 to-cyan-600",
-      "github": "https://github.com/vitaliistf/analytics-dashboard",
-      "demo": "https://analytics-demo.stefaniv.dev",
-      "featured": true
-    },
-    {
-      "id": 3,
-      "title": "AI-Powered Content Management",
-      "description": "CMS with AI-driven content generation, automated SEO optimization, and collaborative editing features.",
-      "tech": ["Vue.js", "FastAPI", "OpenAI", "MongoDB", "Docker"],
-      "gradient": "from-green-600 to-teal-600",
-      "github": "https://github.com/vitaliistf/ai-cms",
-      "demo": "https://cms-demo.stefaniv.dev",
-      "featured": true
     }
   ]
 }
