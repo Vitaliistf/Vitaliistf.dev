@@ -2,65 +2,88 @@
   "experience": [
     {
       "id": 1,
-      "company": "TechCorp Solutions",
-      "position": "Senior Full-Stack Developer",
-      "startDate": "2021",
+      "company": "Appexoft",
+      "position": "Full-stack Developer",
+      "startDate": "Oct 2024",
       "endDate": "Present",
-      "description": "Leading development of enterprise web applications, mentoring junior developers, architecting scalable microservices and AI-assisted user experiences (RAG, tool-use via MCP).",
+      "description": "Building production web applications across frontend and backend using JavaScript/TypeScript and Java. Collaborating on feature delivery, performance, and reliability.",
       "technologies": [
         "React",
         "Next.js",
+        "TypeScript",
         "Node.js",
         "Java",
         "Spring Boot",
-        "Azure OpenAI",
-        "MCP",
         "PostgreSQL",
         "Redis",
-        "AWS",
+        "CI/CD",
         "Docker"
       ],
       "achievements": [
-        "Increased application performance by 40% through optimization",
-        "Led a team of 5 developers on major product redesign",
-        "Implemented CI/CD pipeline reducing deployment time by 60%",
-        "Shipped RAG-based internal knowledge search with vector DB integration",
-        "Integrated Model Context Protocol (MCP) tools to automate support workflows"
+        "Delivered multiple customer-facing features with high quality",
+        "Improved API and DB performance through targeted profiling",
+        "Contributed shared UI and backend modules for faster delivery"
       ]
     },
     {
       "id": 2,
-      "company": "StartupXYZ",
-      "position": "Full-Stack Developer",
-      "startDate": "2019",
-      "endDate": "2021",
-      "description": "Developed MVP and scaled product from 0 to 100k+ users. Built both frontend and backend systems from scratch.",
+      "company": "GeeksForLess Inc.",
+      "position": "Java Software Engineer",
+      "startDate": "Apr 2024",
+      "endDate": "Oct 2024",
+      "description": "Developed Java services and integrations, focusing on clean architecture, persistence, and observability.",
       "technologies": [
-        "Vue.js",
-        "Node.js",
-        "MongoDB",
-        "Redis",
-        "GCP",
-        "WebSocket"
+        "Java",
+        "Spring Boot",
+        "Spring Data JPA",
+        "Hibernate",
+        "PostgreSQL",
+        "MySQL",
+        "REST",
+        "Maven",
+        "Spring Security",
+        "Docker",
+        "Git"
       ],
       "achievements": [
-        "Built entire product infrastructure from ground up",
-        "Achieved 99.9% uptime across all services",
-        "Implemented real-time features serving 10k+ concurrent users"
+        "Delivered new microservices and refactored legacy modules",
+        "Improved query performance and reduced response times",
+        "Hardened authentication/authorization with Spring Security"
       ]
     },
     {
       "id": 3,
-      "company": "Digital Agency Pro",
-      "position": "Frontend Developer",
-      "startDate": "2017",
-      "endDate": "2019",
-      "description": "Created responsive websites and web applications for various clients. Specialized in modern JavaScript frameworks and user experience optimization.",
-      "technologies": ["JavaScript", "React", "SCSS", "Webpack", "REST APIs"],
+      "company": "ROBOCODE",
+      "position": "Embedded Development Teacher",
+      "startDate": "Jun 2024",
+      "endDate": "Nov 2024",
+      "description": "Taught embedded development fundamentals and guided student projects.",
+      "technologies": ["C", "C++", "Embedded"],
       "achievements": [
-        "Delivered 25+ client projects on time and budget",
-        "Improved client website load times by average of 50%",
-        "Established frontend development standards for the team"
+        "Mentored cohorts through hands-on embedded projects",
+        "Introduced best practices for version control and code reviews"
+      ]
+    },
+    {
+      "id": 4,
+      "company": "Inforce",
+      "position": "Full-stack Developer",
+      "startDate": "Mar 2021",
+      "endDate": "Mar 2024",
+      "description": "Built and maintained full-stack features end-to-end with modern JS/TS tooling.",
+      "technologies": [
+        "React",
+        "TypeScript",
+        "Node.js",
+        "Express",
+        "PostgreSQL",
+        "Redis",
+        "WebSockets",
+        "CI/CD"
+      ],
+      "achievements": [
+        "Shipped features across multiple product areas",
+        "Improved reliability and DX via tooling and CI improvements"
       ]
     }
   ],
@@ -77,24 +100,75 @@
   "certifications": [
     {
       "id": 1,
-      "name": "AWS Certified Solutions Architect",
-      "issuer": "Amazon Web Services",
-      "date": "2022",
-      "credential": "AWS-SAA-001"
+      "name": "Introduction to Model Context Protocol",
+      "issuer": "Anthropic",
+      "date": "Aug 2025",
+      "credential": "ntmhqoreqzrt",
+      "url": "https://verify.skilljar.com/c/ntmhqoreqzrt"
     },
     {
       "id": 2,
-      "name": "Google Cloud Professional Developer",
-      "issuer": "Google Cloud",
-      "date": "2021",
-      "credential": "GCP-PD-001"
+      "name": "JS course at Binary Studio Academy With High Honors",
+      "issuer": "Binary Studio",
+      "date": "Sep 2024",
+      "credential": "8fc25629-451c-4836-b2ae-fe0ba50e79c2",
+      "url": "https://study.binary-studio.com/public/8fc25629-451c-4836-b2ae-fe0ba50e79c2"
     },
     {
-      "id": 3,
-      "name": "Microsoft Certified: Azure AI Fundamentals (AI-900)",
-      "issuer": "Microsoft",
-      "date": "2023",
-      "credential": "AI-900"
+      "id": 4,
+      "name": "JavaScript Algorithms and Data Structures",
+      "issuer": "freeCodeCamp",
+      "date": "May 2024",
+      "credential": "vitaliistf-jaads",
+      "url": "https://freecodecamp.org/certification/vitaliistf/javascript-algorithms-and-data-structures-v8"
+    },
+    {
+      "id": 5,
+      "name": "Responsive Web Design",
+      "issuer": "freeCodeCamp",
+      "date": "May 2024",
+      "credential": "vitaliistf-rwd",
+      "url": "https://freecodecamp.org/certification/vitaliistf/responsive-web-design"
+    },
+    {
+      "id": 6,
+      "name": "GFL Java Basic Course (with distinction)",
+      "issuer": "GeeksForLess Inc.",
+      "date": "Apr 2024",
+      "credential": "",
+      "url": "https://www.linkedin.com/in/vitaliistf/details/certifications/1714489540571/single-media-viewer?type=DOCUMENT&profileId=ACoAAD4-IGsBR85O9lF5myQpNGEeY9P3_OScekc"
+    },
+    {
+      "id": 7,
+      "name": "Legacy JavaScript Algorithms and Data Structures",
+      "issuer": "freeCodeCamp",
+      "date": "Apr 2024",
+      "credential": "vitaliistf-ljaads",
+      "url": "https://freecodecamp.org/certification/vitaliistf/javascript-algorithms-and-data-structures"
+    },
+    {
+      "id": 8,
+      "name": "EF SET English Certificate 74/100 (C2 Proficient)",
+      "issuer": "EF SET",
+      "date": "Feb 2024",
+      "credential": "k46SMF",
+      "url": "https://www.efset.org/cert/k46SMF"
+    },
+    {
+      "id": 9,
+      "name": "SoftServe Java Developer Certification",
+      "issuer": "SoftServe",
+      "date": "Apr 2023",
+      "credential": "Series SK No 11910/2023",
+      "url": "https://career.softserveinc.com/uk-ua/certification/verification"
+    },
+    {
+      "id": 10,
+      "name": "EPAM Java Self-Paced Program",
+      "issuer": "EPAM Systems",
+      "date": "Feb 2023",
+      "credential": "EPAMJava2401",
+      "url": "https://certificates.epam.com/certificates/840f7636-5b4a-4912-aea9-14f370e9cdb1"
     }
   ]
 }

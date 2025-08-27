@@ -109,6 +109,19 @@
       ]
     },
     {
+      "name": "Cloud (AWS/Azure)",
+      "level": 86,
+      "category": "cloud",
+      "subskills": [
+        { "name": "AWS S3", "icon": "globe" },
+        { "name": "AWS Lambda", "icon": "zap" },
+        { "name": "AWS RDS", "icon": "database" },
+        { "name": "Azure Functions", "icon": "zap" },
+        { "name": "Azure AKS", "icon": "settings" },
+        { "name": "CDN/CloudFront", "icon": "globe" }
+      ]
+    },
+    {
       "name": "PostgreSQL/MongoDB",
       "level": 88,
       "category": "database",
@@ -118,18 +131,6 @@
         { "name": "Redis Caching", "icon": "zap" },
         { "name": "Prisma ORM", "icon": "layers" },
         { "name": "Data Migration", "icon": "refresh" }
-      ]
-    },
-    {
-      "name": "TypeScript",
-      "level": 92,
-      "category": "language",
-      "subskills": [
-        { "name": "Advanced Types", "icon": "type" },
-        { "name": "Generics", "icon": "box" },
-        { "name": "Decorators", "icon": "star" },
-        { "name": "Module Systems", "icon": "package" },
-        { "name": "Type Guards", "icon": "shield" }
       ]
     },
     {
@@ -155,6 +156,18 @@
         { "name": "Rate Limiting", "icon": "clock" },
         { "name": "Documentation", "icon": "file-text" },
         { "name": "Testing", "icon": "check-circle" }
+      ]
+    },
+    {
+      "name": "Testing/QA",
+      "level": 82,
+      "category": "testing",
+      "subskills": [
+        { "name": "Jest", "icon": "check-circle" },
+        { "name": "Playwright", "icon": "check-circle" },
+        { "name": "Cypress", "icon": "check-circle" },
+        { "name": "Testing Library", "icon": "check-circle" },
+        { "name": "Contract Testing", "icon": "file-text" }
       ]
     }
   ]

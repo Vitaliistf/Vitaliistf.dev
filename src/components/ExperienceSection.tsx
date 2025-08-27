@@ -1,6 +1,6 @@
 'use client';
 
-import { Briefcase, GraduationCap, Award } from 'lucide-react';
+import { Briefcase, GraduationCap, Award, ExternalLink } from 'lucide-react';
 import Section from './Section';
 
 interface Experience {
@@ -29,6 +29,7 @@ interface Certification {
   issuer: string;
   date: string;
   credential: string;
+  url?: string;
 }
 
 interface ExperienceSectionProps {
@@ -139,23 +140,45 @@ const ExperienceSection = ({
               Certifications
             </h3>
             <div className="space-y-4">
-              {certifications.map((cert) => (
-                <div
-                  key={cert.id}
-                  className="backdrop-blur-md bg-white/5 rounded-lg p-4 border border-[rgb(230,170,120)]/20 hover:border-[rgb(230,170,120)]/40 transition-all duration-300 hover:scale-[1.02]"
-                >
-                  <h4 className="font-semibold text-white text-sm">
-                    {cert.name}
-                  </h4>
-                  <p className="text-[rgb(230,170,120)] text-sm">
-                    {cert.issuer}
-                  </p>
-                  <div className="flex justify-between items-center mt-2">
-                    <p className="text-xs text-white/60">{cert.date}</p>
-                    <p className="text-xs text-white/50">{cert.credential}</p>
+              {certifications.map((cert) => {
+                const CardContent = (
+                  <div className="backdrop-blur-md bg-white/5 rounded-lg p-4 border border-[rgb(230,170,120)]/20 hover:border-[rgb(230,170,120)]/40 transition-all duration-300 hover:scale-[1.02] flex justify-between items-start">
+                    <div>
+                      <h4 className="font-semibold text-white text-sm">
+                        {cert.name}
+                      </h4>
+                      <p className="text-[rgb(230,170,120)] text-sm">
+                        {cert.issuer}
+                      </p>
+                      <div className="flex items-center gap-2 mt-1">
+                        <p className="text-xs text-white/60">{cert.date}</p>
+                        {cert.credential && (
+                          <p className="text-xs text-white/50">
+                            {cert.credential}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                    {cert.url && (
+                      <ExternalLink className="w-4 h-4 text-white/50" />
+                    )}
                   </div>
-                </div>
-              ))}
+                );
+
+                return cert.url ? (
+                  <a
+                    key={cert.id}
+                    href={cert.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    {CardContent}
+                  </a>
+                ) : (
+                  <div key={cert.id}>{CardContent}</div>
+                );
+              })}
             </div>
           </div>
         </div>
