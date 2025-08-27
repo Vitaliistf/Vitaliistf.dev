@@ -21,11 +21,15 @@
       },
       {
         "title": "Backend Mastery",
-        "technologies": "Node.js, Python, PostgreSQL, MongoDB, Redis"
+        "technologies": "Node.js, Java, Spring Boot, PostgreSQL, MongoDB, Redis"
       },
       {
         "title": "Cloud & DevOps",
-        "technologies": "AWS, Docker, Kubernetes, CI/CD, Terraform"
+        "technologies": "AWS, Azure, Docker, Kubernetes, CI/CD, Terraform"
+      },
+      {
+        "title": "AI & Agents",
+        "technologies": "Azure OpenAI, MCP (Model Context Protocol), RAG, LangChain/LLM Orchestration, Vector Databases"
       }
     ]
   },
@@ -70,6 +74,17 @@
       ]
     },
     {
+      "name": "Java/Spring Boot",
+      "level": 80,
+      "category": "backend",
+      "subskills": [
+        { "name": "Spring Boot", "icon": "server" },
+        { "name": "JPA/Hibernate", "icon": "database" },
+        { "name": "REST APIs", "icon": "layout" },
+        { "name": "Microservices", "icon": "network" }
+      ]
+    },
+    {
       "name": "Node.js/Express",
       "level": 90,
       "category": "backend",
@@ -79,6 +94,18 @@
         { "name": "Microservices", "icon": "network" },
         { "name": "Authentication", "icon": "shield" },
         { "name": "WebSockets", "icon": "radio" }
+      ]
+    },
+    {
+      "name": "AI/LLMs",
+      "level": 78,
+      "category": "ai",
+      "subskills": [
+        { "name": "MCP (Model Context Protocol)", "icon": "workflow" },
+        { "name": "RAG Pipelines", "icon": "search" },
+        { "name": "Vector Databases", "icon": "database" },
+        { "name": "Prompt Engineering", "icon": "type" },
+        { "name": "Azure OpenAI", "icon": "globe" }
       ]
     },
     {
@@ -106,13 +133,14 @@
       ]
     },
     {
-      "name": "AWS/Docker",
+      "name": "AWS/Azure/Docker",
       "level": 85,
       "category": "devops",
       "subskills": [
         { "name": "Container Orchestration", "icon": "container" },
         { "name": "CI/CD Pipelines", "icon": "workflow" },
         { "name": "AWS Lambda", "icon": "zap" },
+        { "name": "Azure AKS", "icon": "settings" },
         { "name": "Kubernetes", "icon": "settings" },
         { "name": "Infrastructure as Code", "icon": "code" }
       ]

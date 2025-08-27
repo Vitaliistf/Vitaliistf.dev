@@ -6,12 +6,26 @@
       "position": "Senior Full-Stack Developer",
       "startDate": "2021",
       "endDate": "Present",
-      "description": "Leading development of enterprise web applications, mentoring junior developers, and architecting scalable microservices solutions.",
-      "technologies": ["React", "Node.js", "AWS", "PostgreSQL", "Docker"],
+      "description": "Leading development of enterprise web applications, mentoring junior developers, architecting scalable microservices and AI-assisted user experiences (RAG, tool-use via MCP).",
+      "technologies": [
+        "React",
+        "Next.js",
+        "Node.js",
+        "Java",
+        "Spring Boot",
+        "Azure OpenAI",
+        "MCP",
+        "PostgreSQL",
+        "Redis",
+        "AWS",
+        "Docker"
+      ],
       "achievements": [
         "Increased application performance by 40% through optimization",
         "Led a team of 5 developers on major product redesign",
-        "Implemented CI/CD pipeline reducing deployment time by 60%"
+        "Implemented CI/CD pipeline reducing deployment time by 60%",
+        "Shipped RAG-based internal knowledge search with vector DB integration",
+        "Integrated Model Context Protocol (MCP) tools to automate support workflows"
       ]
     },
     {
@@ -21,7 +35,14 @@
       "startDate": "2019",
       "endDate": "2021",
       "description": "Developed MVP and scaled product from 0 to 100k+ users. Built both frontend and backend systems from scratch.",
-      "technologies": ["Vue.js", "Python", "MongoDB", "Redis", "GCP"],
+      "technologies": [
+        "Vue.js",
+        "Node.js",
+        "MongoDB",
+        "Redis",
+        "GCP",
+        "WebSocket"
+      ],
       "achievements": [
         "Built entire product infrastructure from ground up",
         "Achieved 99.9% uptime across all services",
@@ -67,6 +88,13 @@
       "issuer": "Google Cloud",
       "date": "2021",
       "credential": "GCP-PD-001"
+    },
+    {
+      "id": 3,
+      "name": "Microsoft Certified: Azure AI Fundamentals (AI-900)",
+      "issuer": "Microsoft",
+      "date": "2023",
+      "credential": "AI-900"
     }
   ]
 }
