@@ -28,7 +28,7 @@ const Navigation = ({ activeSection, scrollToSection }: NavigationProps) => {
             <div className="text-2xl font-bold bg-gradient-to-r from-[rgb(230,170,120)] to-white bg-clip-text text-transparent">
               <Image src="/logo-notext.png" alt="logo" width={60} height={60} />
             </div>
-            <div className="flex space-x-8">
+            <div className="flex space-x-8 items-center">
               {['About', 'Skills', 'Experience', 'Telegram', 'Contact'].map(
                 (item) => (
                   <button
@@ -46,10 +46,10 @@ const Navigation = ({ activeSection, scrollToSection }: NavigationProps) => {
               )}
               <Link
                 href={`/links`}
-                className={`transition-all duration-300 hover:text-[rgb(230,170,120)] ${
+                className={`px-3 py-1 rounded-full border transition-all duration-300 ${
                   activeSection === 'links'
-                    ? 'text-[rgb(230,170,120)]'
-                    : 'text-white/70'
+                    ? 'border-[rgb(230,170,120)] text-[rgb(230,170,120)] bg-white/5 shadow-[0_0_12px_rgba(230,170,120,0.25)]'
+                    : 'border-white/15 text-white/80 hover:border-[rgb(230,170,120)]/40 hover:text-[rgb(230,170,120)] hover:bg-white/5'
                 }`}
               >
                 Links
