@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { Github, Linkedin, Mail, ChevronDown } from 'lucide-react';
+import { Linkedin, Mail, ChevronDown, Send } from 'lucide-react';
 import Image from 'next/image';
 
 interface HeroSectionProps {
@@ -12,6 +12,7 @@ interface HeroSectionProps {
     github: string;
     linkedin: string;
     email: string;
+    telegram?: string;
   };
   scrollToSection: (sectionId: string) => void;
 }
@@ -25,7 +26,7 @@ const HeroSection = ({ personal, scrollToSection }: HeroSectionProps) => {
   }, []);
 
   const socialLinks = [
-    { Icon: Github, url: personal.github },
+    { Icon: Send, url: personal.telegram ?? personal.github },
     { Icon: Linkedin, url: personal.linkedin },
     { Icon: Mail, url: `mailto:${personal.email}` },
   ];

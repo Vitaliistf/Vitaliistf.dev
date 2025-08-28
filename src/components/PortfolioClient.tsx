@@ -20,6 +20,8 @@ interface PortfolioClientProps {
       email: string;
       github: string;
       linkedin: string;
+      instagram: string;
+      telegram: string;
       experience: string;
       projects: string;
     };

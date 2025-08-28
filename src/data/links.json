@@ -28,6 +28,27 @@
       "featured": true
     },
     {
+      "id": 9,
+      "title": "Telegram",
+      "url": "https://t.me/vitaliistf",
+      "icon": "send",
+      "featured": true
+    },
+    {
+      "id": 10,
+      "title": "Telegram Channel",
+      "url": "https://t.me/vitaliistf_dev",
+      "icon": "send",
+      "featured": true
+    },
+    {
+      "id": 8,
+      "title": "Instagram",
+      "url": "https://instagram.com/vitaliistf",
+      "icon": "instagram",
+      "featured": true
+    },
+    {
       "id": 4,
       "title": "Email",
       "url": "mailto:deosplayt@gmail.com",

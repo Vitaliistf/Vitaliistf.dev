@@ -9,6 +9,8 @@ import {
   FileText,
   Book,
   Twitter,
+  Instagram,
+  Send,
   ExternalLink,
   ArrowLeft,
 } from 'lucide-react';
@@ -48,6 +50,8 @@ const getIcon = (iconName: string) => {
     'file-text': FileText,
     book: Book,
     twitter: Twitter,
+    instagram: Instagram,
+    send: Send,
   };
 
   const IconComponent =
@@ -124,16 +128,16 @@ const LinksClient = ({ linksData }: LinksClientProps) => {
                   }
                   className="block w-full p-4 backdrop-blur-md bg-white/10 border border-[rgb(230,170,120)]/20 rounded-lg hover:bg-[rgb(230,170,120)]/10 hover:border-[rgb(230,170,120)]/40 transition-all duration-300 group"
                 >
-                  <div className="flex items-center space-x-4">
-                    <div className="flex-shrink-0 text-[rgb(230,170,120)] group-hover:scale-110 transition-transform duration-300">
+                  <div className="flex items-center justify-center space-x-4">
+                    <div className="text-[rgb(230,170,120)] group-hover:scale-110 transition-transform duration-300">
                       {getIcon(link.icon)}
                     </div>
-                    <div className="flex-1 text-left">
+                    <div className="text-center">
                       <span className="font-medium text-white group-hover:text-[rgb(230,170,120)] transition-colors duration-300">
                         {link.title}
                       </span>
                     </div>
-                    <div className="flex-shrink-0">
+                    <div>
                       <ExternalLink className="w-4 h-4 text-white/40 group-hover:text-[rgb(230,170,120)] transition-colors duration-300" />
                     </div>
                   </div>

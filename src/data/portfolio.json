@@ -3,9 +3,11 @@
     "name": "Vitalii Stefaniv",
     "title": "Senior Full-Stack Developer",
     "description": "crafting scalable web applications using modern technologies",
-    "email": "vitalii@stefaniv.dev",
+    "email": "deosplayt@gmail.com",
     "github": "https://github.com/vitaliistf",
     "linkedin": "https://linkedin.com/in/vitaliistf",
+    "instagram": "https://instagram.com/vitaliistf",
+    "telegram": "https://t.me/vitaliistf",
     "experience": "5+ Years",
     "projects": "5+ Projects"
   },
@@ -26,10 +28,6 @@
       {
         "title": "Cloud & DevOps",
         "technologies": "AWS, Azure, Docker, Kubernetes, CI/CD, Terraform"
-      },
-      {
-        "title": "AI & Agents",
-        "technologies": "Azure OpenAI, MCP (Model Context Protocol), RAG, LangChain/LLM Orchestration, Vector Databases"
       }
     ]
   },

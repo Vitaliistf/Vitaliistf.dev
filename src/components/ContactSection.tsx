@@ -1,6 +1,6 @@
 'use client';
 
-import { Mail, Github, Linkedin } from 'lucide-react';
+import { Mail, Github, Linkedin, Instagram, Send } from 'lucide-react';
 import Section from './Section';
 import GlassCard from './GlassCard';
 
@@ -9,6 +9,8 @@ interface ContactSectionProps {
     email: string;
     github: string;
     linkedin: string;
+    instagram: string;
+    telegram: string;
   };
 }
 
@@ -20,6 +22,11 @@ const ContactSection = ({ personal }: ContactSectionProps) => {
       url: `mailto:${personal.email}`,
     },
     {
+      Icon: Send,
+      label: personal.telegram.replace('https://', ''),
+      url: personal.telegram,
+    },
+    {
       Icon: Github,
       label: personal.github.replace('https://', ''),
       url: personal.github,
@@ -28,6 +35,11 @@ const ContactSection = ({ personal }: ContactSectionProps) => {
       Icon: Linkedin,
       label: personal.linkedin.replace('https://', ''),
       url: personal.linkedin,
+    },
+    {
+      Icon: Instagram,
+      label: personal.instagram.replace('https://', ''),
+      url: personal.instagram,
     },
   ];
 
@@ -41,19 +53,19 @@ const ContactSection = ({ personal }: ContactSectionProps) => {
           Ready to bring your next project to life? I&apos;m always excited to
           work on challenging problems with innovative teams.
         </p>
-        <div className="flex justify-center space-x-8 mb-12">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 md:gap-8 justify-items-center mb-12">
           {contacts.map(({ Icon, label, url }, index) => (
             <a
               key={index}
               href={url}
               target={url.startsWith('http') ? '_blank' : undefined}
               rel={url.startsWith('http') ? 'noopener noreferrer' : undefined}
-              className="text-center group"
+              className="w-full max-w-[160px] text-center group"
             >
-              <div className="w-16 h-16 rounded-full backdrop-blur-md bg-[rgb(230,170,120)]/10 border border-[rgb(230,170,120)]/30 flex items-center justify-center mx-auto mb-4 hover:scale-110 transition-transform duration-300 cursor-pointer group-hover:bg-[rgb(230,170,120)]/20">
-                <Icon className="w-8 h-8 text-[rgb(230,170,120)]" />
+              <div className="w-16 h-16 rounded-full backdrop-blur-md bg-[rgb(230,170,120)]/10 border border-[rgb(230,170,120)]/30 flex items-center justify-center mx-auto mb-3 hover:scale-110 transition-transform duration-300 cursor-pointer group-hover:bg-[rgb(230,170,120)]/20">
+                <Icon className="w-8 h-8 text-[rgb(230,170,120)] mx-auto" />
               </div>
-              <div className="text-sm text-white/60 group-hover:text-white/80 transition-colors duration-300">
+              <div className="truncate text-sm text-white/60 group-hover:text-white/80 transition-colors duration-300">
                 {label}
               </div>
             </a>
