@@ -22,7 +22,7 @@ const AboutSection = ({ about, personal }: AboutSectionProps) => {
   return (
     <Section id="about">
       <GlassCard className="p-8 md:p-12">
-        <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center bg-gradient-to-r from-[rgb(230,170,120)] to-white bg-clip-text text-transparent">
+        <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center leading-[1.2] bg-gradient-to-r from-[rgb(230,170,120)] to-white bg-clip-text text-transparent">
           About Me
         </h2>
         <div className="grid md:grid-cols-2 gap-12 items-center">

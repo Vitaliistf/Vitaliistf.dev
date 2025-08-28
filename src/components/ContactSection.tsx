@@ -46,7 +46,7 @@ const ContactSection = ({ personal }: ContactSectionProps) => {
   return (
     <Section id="contact">
       <GlassCard className="p-8 md:p-12 text-center">
-        <h2 className="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-[rgb(230,170,120)] to-white bg-clip-text text-transparent">
+        <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-[1.2] bg-gradient-to-r from-[rgb(230,170,120)] to-white bg-clip-text text-transparent">
           Let&apos;s Work Together
         </h2>
         <p className="text-xl text-white/80 mb-12 max-w-2xl mx-auto">

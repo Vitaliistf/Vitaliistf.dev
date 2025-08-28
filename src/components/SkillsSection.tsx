@@ -191,7 +191,7 @@ const SkillsSection = ({ skills }: SkillsSectionProps) => {
 
   return (
     <Section id="skills">
-      <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center bg-gradient-to-r from-[rgb(230,170,120)] to-white bg-clip-text text-transparent">
+      <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center leading-[1.2] bg-gradient-to-r from-[rgb(230,170,120)] to-white bg-clip-text text-transparent">
         Technical Skills
       </h2>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

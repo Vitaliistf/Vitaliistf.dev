@@ -74,7 +74,7 @@ const TelegramSection = ({ telegram }: TelegramSectionProps) => {
       <GlassCard className="p-6 md:p-8">
         {/* Header */}
         <div className="text-center mb-6">
-          <h2 className="text-3xl md:text-4xl font-bold mb-3 bg-gradient-to-r from-[rgb(230,170,120)] to-white bg-clip-text text-transparent">
+          <h2 className="text-3xl md:text-4xl font-bold mb-3 leading-[1.25] bg-gradient-to-r from-[rgb(230,170,120)] to-white bg-clip-text text-transparent">
             {telegram.title}
           </h2>
           <p className="text-base md:text-lg text-white/80 max-w-2xl mx-auto leading-relaxed">

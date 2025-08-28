@@ -45,7 +45,7 @@ const ExperienceSection = ({
 }: ExperienceSectionProps) => {
   return (
     <Section id="experience">
-      <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center bg-gradient-to-r from-[rgb(230,170,120)] to-white bg-clip-text text-transparent">
+      <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center leading-[1.2] bg-gradient-to-r from-[rgb(230,170,120)] to-white bg-clip-text text-transparent">
         Experience & Background
       </h2>
 
