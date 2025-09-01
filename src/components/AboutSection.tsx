@@ -35,15 +35,15 @@ const AboutSection = ({ about, personal }: AboutSectionProps) => {
                 {paragraph}
               </p>
             ))}
-            <div className="flex flex-wrap gap-4">
-              <div className="backdrop-blur-md bg-[rgb(230,170,120)]/10 rounded-lg p-4 border border-[rgb(230,170,120)]/20 w-40 h-24 sm:w-44 sm:h-28 text-center flex flex-col items-center justify-center">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
+              <div className="backdrop-blur-md bg-[rgb(230,170,120)]/10 rounded-lg p-3 sm:p-4 border border-[rgb(230,170,120)]/20 h-24 sm:h-28 text-center flex flex-col items-center justify-center w-full">
                 <Zap className="w-8 h-8 text-[rgb(230,170,120)] mb-2" />
                 <div className="text-sm font-semibold">
                   {personal.experience}
                 </div>
                 <div className="text-xs text-white/60">Experience</div>
               </div>
-              <div className="backdrop-blur-md bg-[rgb(230,170,120)]/10 rounded-lg p-4 border border-[rgb(230,170,120)]/20 w-40 h-24 sm:w-44 sm:h-28 text-center flex flex-col items-center justify-center">
+              <div className="backdrop-blur-md bg-[rgb(230,170,120)]/10 rounded-lg p-3 sm:p-4 border border-[rgb(230,170,120)]/20 h-24 sm:h-28 text-center flex flex-col items-center justify-center w-full">
                 <Terminal className="w-8 h-8 text-[rgb(230,170,120)] mb-2" />
                 <div className="text-sm font-semibold">{personal.projects}</div>
                 <div className="text-xs text-white/60">Completed</div>

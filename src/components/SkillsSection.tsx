@@ -27,6 +27,7 @@ import {
   CheckCircle,
   Palette,
   Route,
+  ChevronDown,
 } from 'lucide-react';
 
 interface Subskill {
@@ -125,6 +126,7 @@ const getSubskillIcon = (iconName: string) => {
 
 const SkillsSection = ({ skills }: SkillsSectionProps) => {
   const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
+  const [expandedSkill, setExpandedSkill] = useState<string | null>(null);
   const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
   const [tooltipElement, setTooltipElement] = useState<HTMLElement | null>(
     null
@@ -167,6 +169,10 @@ const SkillsSection = ({ skills }: SkillsSectionProps) => {
     setTooltipElement(null);
   };
 
+  const toggleExpanded = (skillName: string) => {
+    setExpandedSkill((current) => (current === skillName ? null : skillName));
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       if (tooltipElement && hoveredSkill) {
@@ -204,6 +210,7 @@ const SkillsSection = ({ skills }: SkillsSectionProps) => {
               skill.subskills && handleMouseEnter(skill.name, e)
             }
             onMouseLeave={handleMouseLeave}
+            onClick={() => skill.subskills && toggleExpanded(skill.name)}
           >
             <div className="flex items-center mb-4">
               <div className="text-[rgb(230,170,120)] mr-3 group-hover:scale-110 transition-transform duration-300">
@@ -222,11 +229,57 @@ const SkillsSection = ({ skills }: SkillsSectionProps) => {
                 {skill.level}% Proficiency
               </div>
               {skill.subskills && (
-                <div className="hidden md:block text-xs text-[rgb(230,170,120)]/60 group-hover:text-[rgb(230,170,120)] transition-colors duration-300">
-                  Hover for details
-                </div>
+                <>
+                  <div className="hidden md:block text-xs text-[rgb(230,170,120)]/60 group-hover:text-[rgb(230,170,120)] transition-colors duration-300">
+                    Hover for details
+                  </div>
+                  <button
+                    type="button"
+                    className="md:hidden inline-flex items-center gap-1 text-xs text-[rgb(230,170,120)]/80"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      toggleExpanded(skill.name);
+                    }}
+                    aria-expanded={expandedSkill === skill.name}
+                    aria-controls={`skill-${index}-details`}
+                  >
+                    Details
+                    <ChevronDown
+                      className={`w-3 h-3 transition-transform duration-300 ${
+                        expandedSkill === skill.name ? 'rotate-180' : ''
+                      }`}
+                    />
+                  </button>
+                </>
               )}
             </div>
+
+            {skill.subskills && (
+              <div
+                id={`skill-${index}-details`}
+                className={`md:hidden overflow-hidden transition-all duration-300 ${
+                  expandedSkill === skill.name
+                    ? 'mt-4 max-h-96 opacity-100'
+                    : 'max-h-0 opacity-0'
+                }`}
+              >
+                <div className="grid grid-cols-1 gap-2">
+                  {skill.subskills?.map((subskill) => (
+                    <div
+                      key={subskill.name}
+                      className="flex items-center space-x-3 py-2 px-3 rounded-lg bg-white/5"
+                    >
+                      <div className="text-[rgb(230,170,120)] flex-shrink-0">
+                        {getSubskillIcon(subskill.icon)}
+                      </div>
+                      <span className="text-sm text-white/90 font-medium">
+                        {subskill.name}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         ))}
       </div>
