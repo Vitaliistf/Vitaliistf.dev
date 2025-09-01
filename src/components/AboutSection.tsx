@@ -30,20 +30,20 @@ const AboutSection = ({ about, personal }: AboutSectionProps) => {
             {about.description.map((paragraph, index) => (
               <p
                 key={index}
-                className="text-lg text-white/80 mb-6 leading-relaxed"
+                className="text-base md:text-lg text-white/80 mb-5 md:mb-6 leading-relaxed"
               >
                 {paragraph}
               </p>
             ))}
-            <div className="flex space-x-4">
-              <div className="backdrop-blur-md bg-[rgb(230,170,120)]/10 rounded-lg p-4 border border-[rgb(230,170,120)]/20 w-44 h-28 text-center flex flex-col items-center justify-center">
+            <div className="flex flex-wrap gap-4">
+              <div className="backdrop-blur-md bg-[rgb(230,170,120)]/10 rounded-lg p-4 border border-[rgb(230,170,120)]/20 w-40 h-24 sm:w-44 sm:h-28 text-center flex flex-col items-center justify-center">
                 <Zap className="w-8 h-8 text-[rgb(230,170,120)] mb-2" />
                 <div className="text-sm font-semibold">
                   {personal.experience}
                 </div>
                 <div className="text-xs text-white/60">Experience</div>
               </div>
-              <div className="backdrop-blur-md bg-[rgb(230,170,120)]/10 rounded-lg p-4 border border-[rgb(230,170,120)]/20 w-44 h-28 text-center flex flex-col items-center justify-center">
+              <div className="backdrop-blur-md bg-[rgb(230,170,120)]/10 rounded-lg p-4 border border-[rgb(230,170,120)]/20 w-40 h-24 sm:w-44 sm:h-28 text-center flex flex-col items-center justify-center">
                 <Terminal className="w-8 h-8 text-[rgb(230,170,120)] mb-2" />
                 <div className="text-sm font-semibold">{personal.projects}</div>
                 <div className="text-xs text-white/60">Completed</div>

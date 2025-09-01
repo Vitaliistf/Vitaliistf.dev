@@ -222,7 +222,7 @@ const SkillsSection = ({ skills }: SkillsSectionProps) => {
                 {skill.level}% Proficiency
               </div>
               {skill.subskills && (
-                <div className="text-xs text-[rgb(230,170,120)]/60 group-hover:text-[rgb(230,170,120)] transition-colors duration-300">
+                <div className="hidden md:block text-xs text-[rgb(230,170,120)]/60 group-hover:text-[rgb(230,170,120)] transition-colors duration-300">
                   Hover for details
                 </div>
               )}
@@ -234,7 +234,7 @@ const SkillsSection = ({ skills }: SkillsSectionProps) => {
       {/* Tooltip */}
       {hoveredSkill && (
         <div
-          className="fixed z-50 pointer-events-none"
+          className="fixed z-50 pointer-events-none hidden md:block"
           style={{
             left: `${tooltipPosition.x}px`,
             top: `${tooltipPosition.y}px`,

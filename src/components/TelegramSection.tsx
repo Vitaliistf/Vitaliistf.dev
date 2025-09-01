@@ -109,7 +109,7 @@ const TelegramSection = ({ telegram }: TelegramSectionProps) => {
               href={telegram.channelUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center space-x-3 px-5 py-3 bg-gradient-to-r from-[rgb(230,170,120)] to-[rgb(230,170,120)]/80 rounded-lg font-semibold text-white hover:from-[rgb(230,170,120)]/90 hover:to-[rgb(230,170,120)]/70 transition-all duration-300 hover:scale-105 hover:shadow-lg group"
+              className="inline-flex items-center justify-center space-x-3 px-5 py-3 bg-gradient-to-r from-[rgb(230,170,120)] to-[rgb(230,170,120)]/80 rounded-lg font-semibold text-white hover:from-[rgb(230,170,120)]/90 hover:to-[rgb(230,170,120)]/70 transition-all duration-300 hover:scale-105 hover:shadow-lg group w-full"
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
             >

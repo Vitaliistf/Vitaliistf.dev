@@ -46,13 +46,13 @@ const HeroSection = ({ personal, scrollToSection }: HeroSectionProps) => {
           <div className="grid md:grid-cols-2 gap-10 md:gap-12 items-center">
             {/* Left: Text content */}
             <div className="text-left">
-              <h1 className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-white via-[rgb(230,170,120)] to-white bg-clip-text text-transparent animate-pulse">
+              <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-white via-[rgb(230,170,120)] to-white bg-clip-text text-transparent animate-pulse">
                 {personal.name}
               </h1>
-              <p className="text-xl md:text-2xl text-white/80 mb-8 max-w-xl">
+              <p className="text-base sm:text-lg md:text-2xl text-white/80 mb-6 sm:mb-8 max-w-xl">
                 {personal.title} {personal.description}
               </p>
-              <div className="flex items-center gap-4 mb-12">
+              <div className="flex items-center gap-3 sm:gap-4 mb-8 sm:mb-12">
                 {socialLinks.map(({ Icon, url }, index) => (
                   <a
                     key={index}
@@ -61,9 +61,9 @@ const HeroSection = ({ personal, scrollToSection }: HeroSectionProps) => {
                     rel={
                       url.startsWith('http') ? 'noopener noreferrer' : undefined
                     }
-                    className="w-12 h-12 rounded-full backdrop-blur-md bg-white/10 border border-[rgb(230,170,120)]/30 flex items-center justify-center hover:bg-[rgb(230,170,120)]/20 transition-all duration-300 cursor-pointer hover:scale-110"
+                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-full backdrop-blur-md bg-white/10 border border-[rgb(230,170,120)]/30 flex items-center justify-center hover:bg-[rgb(230,170,120)]/20 transition-all duration-300 cursor-pointer hover:scale-110"
                   >
-                    <Icon className="w-6 h-6 text-[rgb(230,170,120)]" />
+                    <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-[rgb(230,170,120)]" />
                   </a>
                 ))}
               </div>
@@ -79,7 +79,7 @@ const HeroSection = ({ personal, scrollToSection }: HeroSectionProps) => {
                 <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-3xl">
                   <div className="sheen-diagonal" />
                 </div>
-                <div className="relative rounded-2xl overflow-hidden h-[380px] sm:h-[460px] md:h-[520px] flex items-end justify-center">
+                <div className="relative rounded-2xl overflow-hidden h-[300px] sm:h-[420px] md:h-[520px] flex items-end justify-center">
                   <Image
                     src="/ms-nobg.png"
                     alt="Portrait"
@@ -95,10 +95,10 @@ const HeroSection = ({ personal, scrollToSection }: HeroSectionProps) => {
 
         <button
           onClick={() => scrollToSection('about')}
-          className="absolute left-1/2 -translate-x-1/2 bottom-8 animate-bounce"
+          className="absolute left-1/2 -translate-x-1/2 bottom-4 sm:bottom-8 animate-bounce"
           aria-label="Scroll to about section"
         >
-          <ChevronDown className="w-8 h-8 text-[rgb(230,170,120)]" />
+          <ChevronDown className="w-6 h-6 sm:w-8 sm:h-8 text-[rgb(230,170,120)]" />
         </button>
       </section>
 
