@@ -109,48 +109,17 @@ const HeroSection = ({ personal, scrollToSection }: HeroSectionProps) => {
           background: linear-gradient(
             135deg,
             rgba(255, 255, 255, 0) 35%,
-            rgba(255, 255, 255, 0.1) 48%,
-            rgba(230, 170, 120, 0.16) 52%,
-            rgba(255, 255, 255, 0.08) 56%,
+            rgba(255, 255, 255, 0.05) 48%,
+            rgba(230, 170, 120, 0.08) 52%,
+            rgba(255, 255, 255, 0.04) 56%,
             rgba(255, 255, 255, 0) 65%
           );
           opacity: 0;
           transition: opacity 500ms ease;
           pointer-events: none;
         }
-        .sheen-corner {
-          position: absolute;
-          width: 58%;
-          height: 58%;
-          opacity: 0;
-          transition: opacity 500ms ease;
-          pointer-events: none;
-          filter: blur(10px);
-        }
-        .sheen-corner-tr {
-          top: -6%;
-          right: -6%;
-          background: radial-gradient(
-            60% 60% at 100% 0%,
-            rgba(255, 255, 255, 0.12) 0%,
-            rgba(230, 170, 120, 0.26) 28%,
-            rgba(230, 170, 120, 0.12) 45%,
-            transparent 70%
-          );
-        }
-        .sheen-corner-bl {
-          bottom: -6%;
-          left: -6%;
-          background: radial-gradient(
-            60% 60% at 0% 100%,
-            rgba(255, 255, 255, 0.12) 0%,
-            rgba(230, 170, 120, 0.26) 28%,
-            rgba(230, 170, 120, 0.12) 45%,
-            transparent 70%
-          );
-        }
-        .group:hover .sheen-diagonal,
-        .group:hover .sheen-corner {
+
+        .group:hover .sheen-diagonal {
           opacity: 1;
         }
       `}</style>
