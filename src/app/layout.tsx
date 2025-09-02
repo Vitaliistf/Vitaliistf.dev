@@ -56,7 +56,7 @@ export const metadata: Metadata = {
       'Senior Full-Stack Developer with 5+ years of experience crafting scalable web applications using modern technologies. View my portfolio, experience, and technical expertise.',
     images: [
       {
-        url: '/portrait-image.png',
+        url: '/logo-notext.png',
         width: 1200,
         height: 630,
         alt: 'Vitalii Stefaniv - Senior Full-Stack Developer',
