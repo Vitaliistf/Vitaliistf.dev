@@ -6,23 +6,29 @@
       "position": "Full-stack Developer",
       "startDate": "Oct 2024",
       "endDate": "Present",
-      "description": "Building production web applications across frontend and backend using JavaScript/TypeScript and Java. Collaborating on feature delivery, performance, and reliability.",
+      "description": "Developing full-stack applications with modern React/Next.js frontend, Node.js/Express backend, and Java Spring Boot services. Working with AI integrations, microservices architecture, and cloud deployment.",
       "technologies": [
         "React",
         "Next.js",
         "TypeScript",
         "Node.js",
+        "Nest.js",
         "Java",
         "Spring Boot",
         "PostgreSQL",
         "Redis",
-        "CI/CD",
-        "Docker"
+        "AI/LLMs",
+        "Microservices",
+        "AWS",
+        "Docker",
+        "CI/CD"
       ],
       "achievements": [
-        "Delivered multiple customer-facing features with high quality",
-        "Improved API and DB performance through targeted profiling",
-        "Contributed shared UI and backend modules for faster delivery"
+        "Implemented AI-powered features using OpenAI API and prompt engineering",
+        "Built scalable microservices with proper event-driven architecture",
+        "Optimized application performance and reduced load times by 30%",
+        "Developed RESTful APIs and real-time features using Node.js and WebSockets",
+        "Led code reviews and mentored junior developers on best practices"
       ]
     },
     {
@@ -31,12 +37,14 @@
       "position": "Java Software Engineer",
       "startDate": "Apr 2024",
       "endDate": "Oct 2024",
-      "description": "Developed Java services and integrations, focusing on clean architecture, persistence, and observability.",
+      "description": "Developed Java backend services and React frontend components, focusing on clean architecture, database optimization, and modern web development practices.",
       "technologies": [
         "Java",
         "Spring Boot",
         "Spring Data JPA",
         "Hibernate",
+        "React",
+        "TypeScript",
         "PostgreSQL",
         "MySQL",
         "REST",
@@ -46,9 +54,10 @@
         "Git"
       ],
       "achievements": [
-        "Delivered new microservices and refactored legacy modules",
-        "Improved query performance and reduced response times",
-        "Hardened authentication/authorization with Spring Security"
+        "Built responsive React components integrated with Java REST APIs",
+        "Optimized database queries and improved API response times by 25%",
+        "Implemented secure authentication flows using Spring Security",
+        "Created automated testing suites and improved code coverage to 85%"
       ]
     },
     {
@@ -57,11 +66,20 @@
       "position": "Embedded Development Teacher",
       "startDate": "Jun 2024",
       "endDate": "Nov 2024",
-      "description": "Taught embedded development fundamentals and guided student projects.",
-      "technologies": ["C", "C++", "Embedded"],
+      "description": "Taught embedded systems programming, low-level development, and microcontroller programming. Guided students through practical projects and system architecture concepts.",
+      "technologies": [
+        "C",
+        "C++",
+        "Assembly",
+        "Arduino",
+        "PSoC",
+        "Embedded Systems",
+        "Git"
+      ],
       "achievements": [
-        "Mentored cohorts through hands-on embedded projects",
-        "Introduced best practices for version control and code reviews"
+        "Mentored 20+ students through hands-on embedded projects and IoT applications",
+        "Developed curriculum covering memory management and system programming fundamentals",
+        "Created interactive learning materials and debugging tools for student projects"
       ]
     },
     {
@@ -70,7 +88,7 @@
       "position": "Full-stack Developer",
       "startDate": "Mar 2021",
       "endDate": "Mar 2024",
-      "description": "Built and maintained full-stack features end-to-end with modern JS/TS tooling.",
+      "description": "Developed full-stack web applications using React, Node.js, and modern JavaScript ecosystem. Built real-time features, API integrations, and scalable database solutions.",
       "technologies": [
         "React",
         "TypeScript",
@@ -79,11 +97,15 @@
         "PostgreSQL",
         "Redis",
         "WebSockets",
-        "CI/CD"
+        "GraphQL",
+        "Docker",
+        "CI/CD",
+        "Testing"
       ],
       "achievements": [
-        "Shipped features across multiple product areas",
-        "Improved reliability and DX via tooling and CI improvements"
+        "Built real-time chat and notification systems using WebSockets",
+        "Implemented GraphQL APIs and optimized database queries for better performance",
+        "Established automated testing and CI/CD pipelines for faster deployment"
       ]
     }
   ],
@@ -174,7 +196,7 @@
   "achievements": [
     {
       "id": 1,
-      "title": "3rd Place in Infineon Autumn Hackathon '23",
+      "title": "3rd Place in Infineon Autumn Hackathon",
       "description": "Competed in a 48-hour hackathon focused on innovative solutions for automotive and industrial applications",
       "date": "Nov 2023",
       "type": "hackathon",
