@@ -172,10 +172,7 @@ const PortfolioClient = ({
         scrollToSection={scrollToSection}
       />
 
-      <AboutSection
-        about={portfolioData.about}
-        personal={portfolioData.personal}
-      />
+      <AboutSection about={portfolioData.about} />
 
       <SkillsSection skills={portfolioData.skills} />
 

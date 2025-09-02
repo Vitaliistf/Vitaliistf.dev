@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import {
   Briefcase,
   GraduationCap,
@@ -59,6 +59,78 @@ interface ExperienceSectionProps {
   certifications: Certification[];
   achievements: Achievement[];
 }
+
+// Dynamic counter component for animated numbers
+const AnimatedCounter = ({
+  target,
+  duration = 2000,
+  startDelay = 0,
+}: {
+  target: number;
+  duration?: number;
+  startDelay?: number;
+}) => {
+  const [count, setCount] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const elementRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !isVisible) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (elementRef.current) {
+      observer.observe(elementRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [isVisible]);
+
+  useEffect(() => {
+    if (!isVisible) return;
+
+    const timer = setTimeout(() => {
+      let startTime: number;
+      let animationFrame: number;
+
+      const animate = (currentTime: number) => {
+        if (!startTime) startTime = currentTime;
+        const progress = Math.min((currentTime - startTime) / duration, 1);
+
+        // Easing function for smooth animation (ease-out-cubic)
+        const easeOutCubic = 1 - Math.pow(1 - progress, 3);
+        const currentCount = Math.floor(easeOutCubic * target);
+
+        setCount(currentCount);
+
+        if (progress < 1) {
+          animationFrame = requestAnimationFrame(animate);
+        }
+      };
+
+      animationFrame = requestAnimationFrame(animate);
+
+      return () => {
+        if (animationFrame) {
+          cancelAnimationFrame(animationFrame);
+        }
+      };
+    }, startDelay);
+
+    return () => clearTimeout(timer);
+  }, [target, duration, startDelay, isVisible]);
+
+  return (
+    <div ref={elementRef} className="inline-block">
+      {count}+
+    </div>
+  );
+};
 
 const ExperienceSection = ({
   experience,
@@ -276,9 +348,15 @@ const ExperienceSection = ({
                           {achievement.stats && (
                             <div className="text-right">
                               <div className="text-lg font-bold text-[rgb(230,170,120)]">
-                                {isLoading
-                                  ? '...'
-                                  : `${achievement.stats.problemsSolved}+`}
+                                {isLoading ? (
+                                  '...'
+                                ) : (
+                                  <AnimatedCounter
+                                    target={achievement.stats.problemsSolved}
+                                    duration={1500}
+                                    startDelay={300}
+                                  />
+                                )}
                               </div>
                             </div>
                           )}

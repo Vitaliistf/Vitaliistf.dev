@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Section from './Section';
 import { ChevronDown } from 'lucide-react';
 import {
@@ -55,6 +55,155 @@ interface Skill {
 interface SkillsSectionProps {
   skills: Skill[];
 }
+
+// Animated progress bar component
+const AnimatedProgressBar = ({
+  target,
+  duration = 1500,
+  startDelay = 0,
+}: {
+  target: number;
+  duration?: number;
+  startDelay?: number;
+}) => {
+  const [progress, setProgress] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const elementRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !isVisible) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (elementRef.current) {
+      observer.observe(elementRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [isVisible]);
+
+  useEffect(() => {
+    if (!isVisible) return;
+
+    const timer = setTimeout(() => {
+      let startTime: number;
+      let animationFrame: number;
+
+      const animate = (currentTime: number) => {
+        if (!startTime) startTime = currentTime;
+        const progress = Math.min((currentTime - startTime) / duration, 1);
+
+        // Easing function for smooth animation (ease-out-cubic)
+        const easeOutCubic = 1 - Math.pow(1 - progress, 3);
+        const currentProgress = Math.floor(easeOutCubic * target);
+
+        setProgress(currentProgress);
+
+        if (progress < 1) {
+          animationFrame = requestAnimationFrame(animate);
+        }
+      };
+
+      animationFrame = requestAnimationFrame(animate);
+
+      return () => {
+        if (animationFrame) {
+          cancelAnimationFrame(animationFrame);
+        }
+      };
+    }, startDelay);
+
+    return () => clearTimeout(timer);
+  }, [target, duration, startDelay, isVisible]);
+
+  return (
+    <div ref={elementRef} className="w-full">
+      <div className="w-full bg-white/10 rounded-full h-2 mb-2">
+        <div
+          className="bg-gradient-to-r from-[rgb(230,170,120)] to-[rgb(230,170,120)]/60 h-2 rounded-full transition-all duration-300 ease-out"
+          style={{ width: `${progress}%` }}
+        ></div>
+      </div>
+    </div>
+  );
+};
+
+// Animated percentage counter component
+const AnimatedPercentage = ({
+  target,
+  duration = 1500,
+  startDelay = 0,
+}: {
+  target: number;
+  duration?: number;
+  startDelay?: number;
+}) => {
+  const [count, setCount] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const elementRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !isVisible) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (elementRef.current) {
+      observer.observe(elementRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [isVisible]);
+
+  useEffect(() => {
+    if (!isVisible) return;
+
+    const timer = setTimeout(() => {
+      let startTime: number;
+      let animationFrame: number;
+
+      const animate = (currentTime: number) => {
+        if (!startTime) startTime = currentTime;
+        const progress = Math.min((currentTime - startTime) / duration, 1);
+
+        // Easing function for smooth animation (ease-out-cubic)
+        const easeOutCubic = 1 - Math.pow(1 - progress, 3);
+        const currentCount = Math.floor(easeOutCubic * target);
+
+        setCount(currentCount);
+
+        if (progress < 1) {
+          animationFrame = requestAnimationFrame(animate);
+        }
+      };
+
+      animationFrame = requestAnimationFrame(animate);
+
+      return () => {
+        if (animationFrame) {
+          cancelAnimationFrame(animationFrame);
+        }
+      };
+    }, startDelay);
+
+    return () => clearTimeout(timer);
+  }, [target, duration, startDelay, isVisible]);
+
+  return (
+    <div ref={elementRef} className="text-sm text-white/60">
+      {count}% Proficiency
+    </div>
+  );
+};
 
 const getSkillIcon = (category: string) => {
   switch (category) {
@@ -288,16 +437,17 @@ const SkillsSection = ({ skills }: SkillsSectionProps) => {
               </div>
               <h3 className="text-lg font-semibold">{skill.name}</h3>
             </div>
-            <div className="w-full bg-white/10 rounded-full h-2 mb-2">
-              <div
-                className="bg-gradient-to-r from-[rgb(230,170,120)] to-[rgb(230,170,120)]/60 h-2 rounded-full transition-all duration-1000 ease-out"
-                style={{ width: `${skill.level}%` }}
-              ></div>
-            </div>
+            <AnimatedProgressBar
+              target={skill.level}
+              duration={1200}
+              startDelay={index * 100}
+            />
             <div className="flex items-center justify-between">
-              <div className="text-sm text-white/60">
-                {skill.level}% Proficiency
-              </div>
+              <AnimatedPercentage
+                target={skill.level}
+                duration={1200}
+                startDelay={index * 100}
+              />
               {skill.subskills && (
                 <>
                   <div className="hidden md:block text-xs text-[rgb(230,170,120)]/60 group-hover:text-[rgb(230,170,120)] transition-colors duration-300">

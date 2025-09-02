@@ -1,8 +1,84 @@
 'use client';
 
+import { useState, useEffect, useRef } from 'react';
 import { Zap, Terminal } from 'lucide-react';
 import Section from './Section';
 import GlassCard from './GlassCard';
+
+// Dynamic counter component for animated numbers
+const AnimatedCounter = ({
+  target,
+  duration = 2000,
+  startDelay = 0,
+  suffix = '',
+}: {
+  target: number;
+  duration?: number;
+  startDelay?: number;
+  suffix?: string;
+}) => {
+  const [count, setCount] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const elementRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !isVisible) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (elementRef.current) {
+      observer.observe(elementRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [isVisible]);
+
+  useEffect(() => {
+    if (!isVisible) return;
+
+    const timer = setTimeout(() => {
+      let startTime: number;
+      let animationFrame: number;
+
+      const animate = (currentTime: number) => {
+        if (!startTime) startTime = currentTime;
+        const progress = Math.min((currentTime - startTime) / duration, 1);
+
+        // Easing function for smooth animation (ease-out-cubic)
+        const easeOutCubic = 1 - Math.pow(1 - progress, 3);
+        const currentCount = Math.floor(easeOutCubic * target);
+
+        setCount(currentCount);
+
+        if (progress < 1) {
+          animationFrame = requestAnimationFrame(animate);
+        }
+      };
+
+      animationFrame = requestAnimationFrame(animate);
+
+      return () => {
+        if (animationFrame) {
+          cancelAnimationFrame(animationFrame);
+        }
+      };
+    }, startDelay);
+
+    return () => clearTimeout(timer);
+  }, [target, duration, startDelay, isVisible]);
+
+  return (
+    <div ref={elementRef} className="inline-block">
+      {count}
+      {suffix}
+    </div>
+  );
+};
 
 interface AboutSectionProps {
   about: {
@@ -12,13 +88,9 @@ interface AboutSectionProps {
       technologies: string;
     }>;
   };
-  personal: {
-    experience: string;
-    projects: string;
-  };
 }
 
-const AboutSection = ({ about, personal }: AboutSectionProps) => {
+const AboutSection = ({ about }: AboutSectionProps) => {
   return (
     <Section id="about">
       <GlassCard className="p-8 md:p-12">
@@ -39,13 +111,25 @@ const AboutSection = ({ about, personal }: AboutSectionProps) => {
               <div className="backdrop-blur-md bg-[rgb(230,170,120)]/10 rounded-lg p-3 sm:p-4 border border-[rgb(230,170,120)]/20 h-24 sm:h-28 text-center flex flex-col items-center justify-center w-full">
                 <Zap className="w-8 h-8 text-[rgb(230,170,120)] mb-2" />
                 <div className="text-sm font-semibold">
-                  {personal.experience}
+                  <AnimatedCounter
+                    target={5}
+                    duration={1200}
+                    startDelay={200}
+                    suffix="+ Years"
+                  />
                 </div>
                 <div className="text-xs text-white/60">Experience</div>
               </div>
               <div className="backdrop-blur-md bg-[rgb(230,170,120)]/10 rounded-lg p-3 sm:p-4 border border-[rgb(230,170,120)]/20 h-24 sm:h-28 text-center flex flex-col items-center justify-center w-full">
                 <Terminal className="w-8 h-8 text-[rgb(230,170,120)] mb-2" />
-                <div className="text-sm font-semibold">{personal.projects}</div>
+                <div className="text-sm font-semibold">
+                  <AnimatedCounter
+                    target={5}
+                    duration={1200}
+                    startDelay={400}
+                    suffix="+ Projects"
+                  />
+                </div>
                 <div className="text-xs text-white/60">Completed</div>
               </div>
             </div>
