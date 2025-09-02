@@ -4,6 +4,19 @@ import { useState, useEffect, useRef } from 'react';
 import Section from './Section';
 import { ChevronDown } from 'lucide-react';
 import {
+  useFloating,
+  autoUpdate,
+  offset,
+  flip,
+  shift,
+  useHover,
+  useFocus,
+  useDismiss,
+  useRole,
+  useInteractions,
+  FloatingPortal,
+} from '@floating-ui/react';
+import {
   // React/Next.js
   SiReact,
   SiNextdotjs,
@@ -607,212 +620,173 @@ const getSubskillIcon = (iconName: string) => {
   }
 };
 
-const SkillsSection = ({ skills }: SkillsSectionProps) => {
-  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
-  const [expandedSkill, setExpandedSkill] = useState<string | null>(null);
-  const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
-  const [tooltipElement, setTooltipElement] = useState<HTMLElement | null>(
-    null
+// Tooltip component using Floating UI
+const SkillTooltip = ({
+  skill,
+  children,
+}: {
+  skill: Skill;
+  children: React.ReactNode;
+}) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const { refs, floatingStyles, context } = useFloating({
+    open: isOpen,
+    onOpenChange: setIsOpen,
+    middleware: [offset(10), flip(), shift({ padding: 8 })],
+    whileElementsMounted: autoUpdate,
+  });
+
+  const hover = useHover(context, { move: false });
+  const focus = useFocus(context);
+  const dismiss = useDismiss(context);
+  const role = useRole(context, { role: 'tooltip' });
+
+  const { getReferenceProps, getFloatingProps } = useInteractions([
+    hover,
+    focus,
+    dismiss,
+    role,
+  ]);
+
+  if (!skill.subskills) {
+    return <>{children}</>;
+  }
+
+  return (
+    <>
+      <div ref={refs.setReference} {...getReferenceProps()} className="w-full">
+        {children}
+      </div>
+      {isOpen && (
+        <FloatingPortal>
+          <div
+            ref={refs.setFloating}
+            style={floatingStyles}
+            {...getFloatingProps()}
+            className="z-50"
+          >
+            <div className="backdrop-blur-md bg-[rgb(36,36,36)]/90 border border-[rgb(230,170,120)]/30 rounded-xl p-3 shadow-2xl animate-in fade-in slide-in-from-bottom-2 duration-200 max-w-xs">
+              <div className="text-sm font-semibold text-[rgb(230,170,120)] mb-2 text-center">
+                Related Skills
+              </div>
+              <div className="grid grid-cols-1 gap-1">
+                {skill.subskills.map((subskill, index) => (
+                  <div
+                    key={subskill.name}
+                    className="flex items-center space-x-2 py-1.5 px-2 rounded-lg bg-white/5 hover:bg-white/10 transition-all duration-200"
+                    style={{ animationDelay: `${index * 30}ms` }}
+                  >
+                    <div className="text-[rgb(230,170,120)] flex-shrink-0">
+                      {getSubskillIcon(subskill.icon)}
+                    </div>
+                    <span className="text-xs text-white/90 font-medium truncate">
+                      {subskill.name}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </FloatingPortal>
+      )}
+    </>
   );
+};
 
-  const updateTooltipPosition = (element: HTMLElement) => {
-    if (!element) return;
-
-    const rect = element.getBoundingClientRect();
-    const viewportWidth = window.innerWidth;
-
-    let x = rect.left + rect.width / 2;
-    let y = rect.top - 10;
-
-    // Ensure tooltip doesn't go off screen horizontally
-    const tooltipWidth = 220; // approximate tooltip width
-    if (x + tooltipWidth / 2 > viewportWidth) {
-      x = viewportWidth - tooltipWidth / 2 - 10;
-    } else if (x - tooltipWidth / 2 < 0) {
-      x = tooltipWidth / 2 + 10;
-    }
-
-    // If tooltip would go above viewport, show it below the element
-    if (y < 100) {
-      y = rect.bottom + 10;
-    }
-
-    setTooltipPosition({ x, y });
-  };
-
-  const handleMouseEnter = (skillName: string, event: React.MouseEvent) => {
-    const element = event.currentTarget as HTMLElement;
-    setTooltipElement(element);
-    updateTooltipPosition(element);
-    setHoveredSkill(skillName);
-  };
-
-  const handleMouseLeave = () => {
-    setHoveredSkill(null);
-    setTooltipElement(null);
-  };
+const SkillsSection = ({ skills }: SkillsSectionProps) => {
+  const [expandedSkill, setExpandedSkill] = useState<string | null>(null);
 
   const toggleExpanded = (skillName: string) => {
     setExpandedSkill((current) => (current === skillName ? null : skillName));
   };
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (tooltipElement && hoveredSkill) {
-        updateTooltipPosition(tooltipElement);
-      }
-    };
-
-    const handleResize = () => {
-      if (tooltipElement && hoveredSkill) {
-        updateTooltipPosition(tooltipElement);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', handleResize);
-    };
-  }, [tooltipElement, hoveredSkill]);
 
   return (
     <Section id="skills">
       <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center leading-[1.2] bg-gradient-to-r from-[rgb(230,170,120)] to-white bg-clip-text text-transparent">
         Technical Skills
       </h2>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
         {skills.map((skill, index) => (
-          <div
-            key={skill.name}
-            className="backdrop-blur-md bg-white/5 rounded-xl p-6 border border-[rgb(230,170,120)]/20 hover:border-[rgb(230,170,120)]/40 transition-all duration-500 hover:scale-105 group relative cursor-pointer"
-            style={{ animationDelay: `${index * 100}ms` }}
-            onMouseEnter={(e) =>
-              skill.subskills && handleMouseEnter(skill.name, e)
-            }
-            onMouseLeave={handleMouseLeave}
-            onClick={() => skill.subskills && toggleExpanded(skill.name)}
-          >
-            <div className="flex items-center mb-4">
-              <div className="text-[rgb(230,170,120)] mr-3 group-hover:scale-110 transition-transform duration-300">
-                {getSkillIcon(skill.category)}
+          <SkillTooltip key={skill.name} skill={skill}>
+            <div
+              className="backdrop-blur-md bg-white/5 rounded-lg p-4 border border-[rgb(230,170,120)]/20 hover:border-[rgb(230,170,120)]/40 transition-all duration-500 hover:scale-105 group relative cursor-pointer"
+              style={{ animationDelay: `${index * 100}ms` }}
+              onClick={() => skill.subskills && toggleExpanded(skill.name)}
+            >
+              <div className="flex items-center mb-3">
+                <div className="text-[rgb(230,170,120)] mr-2 group-hover:scale-110 transition-transform duration-300">
+                  {getSkillIcon(skill.category)}
+                </div>
+                <h3 className="text-base font-semibold">{skill.name}</h3>
               </div>
-              <h3 className="text-lg font-semibold">{skill.name}</h3>
-            </div>
-            <AnimatedProgressBar
-              target={skill.level}
-              duration={1200}
-              startDelay={index * 100}
-            />
-            <div className="flex items-center justify-between">
-              <AnimatedPercentage
+              <AnimatedProgressBar
                 target={skill.level}
                 duration={1200}
                 startDelay={index * 100}
               />
+              <div className="flex items-center justify-between mt-2">
+                <AnimatedPercentage
+                  target={skill.level}
+                  duration={1200}
+                  startDelay={index * 100}
+                />
+                {skill.subskills && (
+                  <>
+                    <div className="hidden md:block text-xs text-[rgb(230,170,120)]/60 group-hover:text-[rgb(230,170,120)] transition-colors duration-300">
+                      Hover for details
+                    </div>
+                    <button
+                      type="button"
+                      className="md:hidden inline-flex items-center gap-1 text-xs text-[rgb(230,170,120)]/80"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        toggleExpanded(skill.name);
+                      }}
+                      aria-expanded={expandedSkill === skill.name}
+                      aria-controls={`skill-${index}-details`}
+                    >
+                      Details
+                      <ChevronDown
+                        className={`w-3 h-3 transition-transform duration-300 ${
+                          expandedSkill === skill.name ? 'rotate-180' : ''
+                        }`}
+                      />
+                    </button>
+                  </>
+                )}
+              </div>
+
               {skill.subskills && (
-                <>
-                  <div className="hidden md:block text-xs text-[rgb(230,170,120)]/60 group-hover:text-[rgb(230,170,120)] transition-colors duration-300">
-                    Hover for details
+                <div
+                  id={`skill-${index}-details`}
+                  className={`md:hidden overflow-hidden transition-all duration-300 ${
+                    expandedSkill === skill.name
+                      ? 'mt-3 max-h-96 opacity-100'
+                      : 'max-h-0 opacity-0'
+                  }`}
+                >
+                  <div className="grid grid-cols-1 gap-1.5">
+                    {skill.subskills?.map((subskill) => (
+                      <div
+                        key={subskill.name}
+                        className="flex items-center space-x-2 py-1.5 px-2 rounded-lg bg-white/5"
+                      >
+                        <div className="text-[rgb(230,170,120)] flex-shrink-0">
+                          {getSubskillIcon(subskill.icon)}
+                        </div>
+                        <span className="text-xs text-white/90 font-medium">
+                          {subskill.name}
+                        </span>
+                      </div>
+                    ))}
                   </div>
-                  <button
-                    type="button"
-                    className="md:hidden inline-flex items-center gap-1 text-xs text-[rgb(230,170,120)]/80"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      toggleExpanded(skill.name);
-                    }}
-                    aria-expanded={expandedSkill === skill.name}
-                    aria-controls={`skill-${index}-details`}
-                  >
-                    Details
-                    <ChevronDown
-                      className={`w-3 h-3 transition-transform duration-300 ${
-                        expandedSkill === skill.name ? 'rotate-180' : ''
-                      }`}
-                    />
-                  </button>
-                </>
+                </div>
               )}
             </div>
-
-            {skill.subskills && (
-              <div
-                id={`skill-${index}-details`}
-                className={`md:hidden overflow-hidden transition-all duration-300 ${
-                  expandedSkill === skill.name
-                    ? 'mt-4 max-h-96 opacity-100'
-                    : 'max-h-0 opacity-0'
-                }`}
-              >
-                <div className="grid grid-cols-1 gap-2">
-                  {skill.subskills?.map((subskill) => (
-                    <div
-                      key={subskill.name}
-                      className="flex items-center space-x-3 py-2 px-3 rounded-lg bg-white/5"
-                    >
-                      <div className="text-[rgb(230,170,120)] flex-shrink-0">
-                        {getSubskillIcon(subskill.icon)}
-                      </div>
-                      <span className="text-sm text-white/90 font-medium">
-                        {subskill.name}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
+          </SkillTooltip>
         ))}
       </div>
-
-      {/* Tooltip */}
-      {hoveredSkill && (
-        <div
-          className="fixed z-50 pointer-events-none hidden md:block"
-          style={{
-            left: `${tooltipPosition.x}px`,
-            top: `${tooltipPosition.y}px`,
-            transform: 'translate(-50%, -100%)',
-          }}
-        >
-          <div className="backdrop-blur-md bg-[rgb(36,36,36)]/90 border border-[rgb(230,170,120)]/30 rounded-xl p-4 shadow-2xl animate-in fade-in slide-in-from-bottom-2 duration-200">
-            <div className="text-sm font-semibold text-[rgb(230,170,120)] mb-3 text-center">
-              Related Skills
-            </div>
-            <div className="grid grid-cols-1 gap-2 min-w-[200px]">
-              {skills
-                .find((skill) => skill.name === hoveredSkill)
-                ?.subskills?.map((subskill, index) => (
-                  <div
-                    key={subskill.name}
-                    className="flex items-center space-x-3 py-2 px-3 rounded-lg bg-white/5 hover:bg-white/10 transition-all duration-200"
-                    style={{ animationDelay: `${index * 50}ms` }}
-                  >
-                    <div className="text-[rgb(230,170,120)] flex-shrink-0">
-                      {getSubskillIcon(subskill.icon)}
-                    </div>
-                    <span className="text-sm text-white/90 font-medium">
-                      {subskill.name}
-                    </span>
-                  </div>
-                ))}
-            </div>
-            {/* Arrow */}
-            <div
-              className={`absolute left-1/2 transform -translate-x-1/2 ${
-                tooltipPosition.y > 150
-                  ? 'bottom-0 translate-y-full'
-                  : 'top-0 -translate-y-full rotate-180'
-              }`}
-            >
-              <div className="w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-[rgb(230,170,120)]/30"></div>
-            </div>
-          </div>
-        </div>
-      )}
     </Section>
   );
 };
