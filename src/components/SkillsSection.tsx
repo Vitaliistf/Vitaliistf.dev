@@ -286,7 +286,17 @@ const AnimatedPercentage = ({
   );
 };
 
-const getSkillIcon = (category: string) => {
+const getSkillIcon = (category: string, skillName?: string) => {
+  // Handle backend skills specifically by name
+  if (category === 'backend' && skillName) {
+    if (skillName.toLowerCase().includes('java')) {
+      return <SiSpring className="w-6 h-6" />;
+    }
+    if (skillName.toLowerCase().includes('node')) {
+      return <SiNodedotjs className="w-6 h-6" />;
+    }
+  }
+
   switch (category) {
     case 'frontend':
       return <SiReact className="w-6 h-6" />;
@@ -728,7 +738,7 @@ const SkillsSection = ({ skills }: SkillsSectionProps) => {
             >
               <div className="flex items-center mb-3">
                 <div className="text-[rgb(230,170,120)] mr-2 group-hover:scale-110 transition-transform duration-300">
-                  {getSkillIcon(skill.category)}
+                  {getSkillIcon(skill.category, skill.name)}
                 </div>
                 <h3 className="text-base font-semibold">{skill.name}</h3>
               </div>
