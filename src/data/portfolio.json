@@ -64,20 +64,20 @@
       "level": 95,
       "category": "frontend",
       "subskills": [
-        { "name": "Typescript", "icon": "typescript" },
+        { "name": "TypeScript", "icon": "typescript" },
         { "name": "React", "icon": "react" },
         { "name": "Next.js", "icon": "nextjs" },
         { "name": "SSR/SSG/ISR", "icon": "nextjs" },
         { "name": "Redux/Redux Toolkit", "icon": "redux" },
-        { "name": "Zustand", "icon": "redux" },
+        { "name": "Zustand", "icon": "zustand" },
         { "name": "Zod", "icon": "zod" },
         { "name": "Tanstack/React Query", "icon": "react-hooks" },
         { "name": "Module CSS, SCSS, Tailwind CSS", "icon": "tailwind" },
         { "name": "Styled Components", "icon": "tailwind" },
         { "name": "Material UI", "icon": "mui" },
         { "name": "Chakra UI", "icon": "chakra" },
-        { "name": "Framer Motion", "icon": "react-hooks" },
-        { "name": "React Hook Form", "icon": "react-hooks" }
+        { "name": "Framer Motion", "icon": "framer-motion" },
+        { "name": "React Hook Form", "icon": "react-hook-form" }
       ]
     },
     {
@@ -85,21 +85,20 @@
       "level": 80,
       "category": "backend",
       "subskills": [
-        { "name": "Spring Core", "icon": "spring-boot" },
-        { "name": "Hibernate/Spring Data JPA", "icon": "jpa-hibernate" },
-        { "name": "Spring Security", "icon": "authentication" },
-        { "name": "Spring MVC", "icon": "rest-apis" },
-        { "name": "Spring WebFlux", "icon": "spring-boot" },
-        { "name": "Spring Cloud", "icon": "microservices" },
+        { "name": "Spring Core", "icon": "spring" },
+        { "name": "Spring Boot", "icon": "spring-boot" },
+        { "name": "Hibernate/JPA", "icon": "hibernate" },
+        { "name": "Spring Security", "icon": "spring-security" },
+        { "name": "Spring MVC", "icon": "spring-mvc" },
+        { "name": "Spring WebFlux", "icon": "spring-webflux" },
+        { "name": "Spring Cloud", "icon": "spring-cloud" },
         { "name": "Concurrency", "icon": "java" },
         { "name": "Thymeleaf", "icon": "thymeleaf" },
-        { "name": "Maven/Gradle", "icon": "spring-boot" },
-        { "name": "Flyway/Liquibase", "icon": "data-migration" },
-        { "name": "Jakarta EE", "icon": "java" },
-        { "name": "JDBC", "icon": "database" },
-        { "name": "Kotlin", "icon": "kotlin" },
-        { "name": "Kafka", "icon": "kafka" },
-        { "name": "RabbitMQ", "icon": "rabbitmq" }
+        { "name": "Maven/Gradle", "icon": "maven" },
+        { "name": "Liquibase/Flyway", "icon": "liquibase" },
+        { "name": "Jakarta EE", "icon": "jakarta-ee" },
+        { "name": "JDBC", "icon": "jdbc" },
+        { "name": "Kotlin", "icon": "kotlin" }
       ]
     },
     {
@@ -109,15 +108,29 @@
       "subskills": [
         { "name": "NestJS", "icon": "nestjs" },
         { "name": "Express", "icon": "express" },
-        { "name": "Passport.js", "icon": "authentication" },
-        { "name": "Fastify", "icon": "express" },
-        { "name": "Socket.IO", "icon": "websockets" },
+        { "name": "Passport.js", "icon": "passport" },
+        { "name": "Fastify", "icon": "fastify" },
+        { "name": "Socket.IO", "icon": "socketio" },
         { "name": "Prisma/Sequelize/TypeORM", "icon": "prisma" },
-        { "name": "Mongoose", "icon": "prisma" },
-        { "name": "Nodemailer", "icon": "express" },
-        { "name": "PM2", "icon": "express" },
-        { "name": "NPM/Yarn", "icon": "node" },
+        { "name": "Mongoose", "icon": "mongoose" },
+        { "name": "Nodemailer", "icon": "nodemailer" },
+        { "name": "PM2", "icon": "pm2" },
+        { "name": "NPM/Yarn", "icon": "npm" },
         { "name": "Stripe", "icon": "stripe" }
+      ]
+    },
+    {
+      "name": "Microservices & Messaging",
+      "level": 85,
+      "category": "microservices",
+      "subskills": [
+        { "name": "Apache Kafka", "icon": "kafka" },
+        { "name": "RabbitMQ", "icon": "rabbitmq" },
+        { "name": "Redis Pub/Sub", "icon": "redis" },
+        { "name": "gRPC", "icon": "grpc" },
+        { "name": "API Gateway", "icon": "kong" },
+        { "name": "Circuit Breaker", "icon": "hystrix" },
+        { "name": "Event Sourcing", "icon": "eventstore" }
       ]
     },
     {
@@ -126,9 +139,9 @@
       "category": "ai",
       "subskills": [
         { "name": "Prompt Engineering", "icon": "prompt-engineering" },
-        { "name": "OpenAI API", "icon": "azure-openai" },
-        { "name": "Anthropic Claude", "icon": "azure-openai" },
-        { "name": "MCP", "icon": "mcp" }
+        { "name": "OpenAI API", "icon": "openai" },
+        { "name": "Anthropic Claude", "icon": "anthropic" },
+        { "name": "MCP (Model Context Protocol)", "icon": "mcp" }
       ]
     },
     {
@@ -141,12 +154,11 @@
         { "name": "Google Cloud Platform", "icon": "gcp" },
         { "name": "Cloudflare", "icon": "cloudflare" },
         { "name": "Cloud RDBS", "icon": "database" },
-        { "name": "Cloud Functions (Lambdas)", "icon": "azure-functions" },
-        { "name": "Cloud Storage Buckets", "icon": "azure-functions" },
+        { "name": "Cloud Functions (Lambdas)", "icon": "lambda" },
+        { "name": "Cloud Storage Buckets", "icon": "s3" },
         { "name": "CI/CD", "icon": "cicd" },
         { "name": "Vercel", "icon": "vercel" },
-        { "name": "Render", "icon": "render" },
-        { "name": "Microservices", "icon": "microservices" }
+        { "name": "Render", "icon": "render" }
       ]
     },
     {
@@ -154,50 +166,92 @@
       "level": 88,
       "category": "database",
       "subskills": [
-        { "name": "PostgreSQL", "icon": "query-optimization" },
-        { "name": "MySQL", "icon": "query-optimization" },
-        { "name": "MongoDB", "icon": "database-design" },
-        { "name": "Mongo Atlas", "icon": "database-design" },
-        { "name": "Redis", "icon": "redis" }
+        { "name": "PostgreSQL", "icon": "postgresql" },
+        { "name": "MySQL", "icon": "mysql" },
+        { "name": "MongoDB", "icon": "mongodb" },
+        { "name": "Redis", "icon": "redis" },
+        { "name": "Elasticsearch", "icon": "elasticsearch" },
+        { "name": "Database Design", "icon": "database-design" },
+        { "name": "Query Optimization", "icon": "query-optimization" },
+        { "name": "Data Migration", "icon": "data-migration" }
       ]
     },
     {
-      "name": "Docker/Containers",
+      "name": "DevOps & Containers",
       "level": 85,
       "category": "devops",
       "subskills": [
-        { "name": "Docker", "icon": "container-orchestration" },
-        { "name": "Kubernetes", "icon": "container-orchestration" },
-        { "name": "Helm", "icon": "kubernetes" }
+        { "name": "Docker", "icon": "docker" },
+        { "name": "Kubernetes", "icon": "kubernetes" },
+        { "name": "Helm", "icon": "helm" },
+        { "name": "Jenkins", "icon": "jenkins" },
+        { "name": "GitHub Actions", "icon": "github-actions" },
+        { "name": "GitLab CI", "icon": "gitlab" },
+        { "name": "CircleCI", "icon": "circleci" }
       ]
     },
     {
-      "name": "GraphQL/REST",
+      "name": "APIs & Integration",
       "level": 87,
       "category": "api",
       "subskills": [
-        { "name": "GraphQL (Apollo)", "icon": "apollo-graphql" },
-        { "name": "REST APIs", "icon": "rest-apis" },
-        { "name": "OpenAPI/Swagger", "icon": "documentation" },
-        { "name": "Postman", "icon": "documentation" },
-        { "name": "API Versioning", "icon": "rest-apis" },
+        { "name": "GraphQL", "icon": "graphql" },
+        { "name": "Apollo Server", "icon": "apollo" },
+        { "name": "REST APIs", "icon": "rest" },
+        { "name": "OpenAPI/Swagger", "icon": "swagger" },
+        { "name": "Postman", "icon": "postman" },
+        { "name": "API Versioning", "icon": "api-versioning" },
         { "name": "Rate Limiting", "icon": "rate-limiting" },
-        { "name": "Redis Caching", "icon": "redis" }
+        { "name": "OAuth 2.0", "icon": "oauth" },
+        { "name": "Webhooks", "icon": "webhooks" },
+        { "name": "API Gateway", "icon": "api-gateway" }
       ]
     },
     {
-      "name": "Testing/QA",
+      "name": "Testing & Quality",
       "level": 82,
       "category": "testing",
       "subskills": [
-        { "name": "Test-Driven Development", "icon": "testing" },
-        { "name": "Jest/Vitest", "icon": "jest" },
-        { "name": "React Testing Library", "icon": "testing-library" },
+        { "name": "Test-Driven Development", "icon": "tdd" },
+        { "name": "Jest", "icon": "jest" },
+        { "name": "Vitest", "icon": "vitest" },
+        { "name": "React Testing Library", "icon": "rtl" },
         { "name": "Cypress", "icon": "cypress" },
-        { "name": "JUnit 5", "icon": "jest" },
-        { "name": "Testcontainers", "icon": "testing" },
-        { "name": "JMeter", "icon": "testing" },
-        { "name": "Mockito", "icon": "testing" }
+        { "name": "JUnit 5", "icon": "junit" },
+        { "name": "Testcontainers", "icon": "testcontainers" },
+        { "name": "JMeter", "icon": "jmeter" },
+        { "name": "Mockito", "icon": "mockito" },
+        { "name": "Load Testing", "icon": "k6" }
+      ]
+    },
+    {
+      "name": "Security & Performance",
+      "level": 80,
+      "category": "security",
+      "subskills": [
+        { "name": "OWASP Top 10", "icon": "owasp" },
+        { "name": "JWT Security", "icon": "jwt" },
+        { "name": "OAuth 2.0", "icon": "oauth" },
+        { "name": "HTTPS/TLS", "icon": "tls" },
+        { "name": "Content Security Policy", "icon": "csp" },
+        { "name": "Performance Optimization", "icon": "performance" },
+        { "name": "Caching Strategies", "icon": "caching" },
+        { "name": "CDN", "icon": "cdn" },
+        { "name": "Bundle Analysis", "icon": "bundle-analyzer" }
+      ]
+    },
+    {
+      "name": "Low-Level Languages",
+      "level": 70,
+      "category": "low-level",
+      "subskills": [
+        { "name": "C", "icon": "c" },
+        { "name": "C++", "icon": "cpp" },
+        { "name": "Assembly", "icon": "assembly" },
+        { "name": "Arduino", "icon": "arduino" },
+        { "name": "PSoC", "icon": "psoc" },
+        { "name": "Memory Management", "icon": "memory" },
+        { "name": "System Programming", "icon": "system" }
       ]
     }
   ]

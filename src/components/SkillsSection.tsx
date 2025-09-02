@@ -9,33 +9,101 @@ import {
   SiNextdotjs,
   SiRedux,
   SiTailwindcss,
+  SiTypescript,
+  SiZod,
+  SiStyledcomponents,
+  SiChakraui,
+  SiFramer,
+  SiReacthookform,
+  SiStorybook,
+  SiVite,
   // Java/Spring
   SiSpring,
   SiHibernate,
+  SiSpringboot,
+  SiSpringsecurity,
+  SiThymeleaf,
+  SiGradle,
+  SiFlyway,
+  SiLiquibase,
+  SiKotlin,
   // Node.js
   SiNodedotjs,
   SiExpress,
   SiNestjs,
+  SiPassport,
+  SiFastify,
+  SiSocketdotio,
+  SiPrisma,
+  SiSequelize,
+  SiTypeorm,
+  SiMongoose,
+  SiPm2,
+  SiNpm,
+  SiYarn,
+  SiStripe,
+  // Low-level languages
+  SiC,
+  SiCplusplus,
+  SiRust,
+  SiGo,
+  SiAssemblyscript,
+  SiArduino,
+  // Microservices
+  SiApachekafka,
+  SiRabbitmq,
+  SiApachepulsar,
+  SiRedis,
+  SiIstio,
+  SiKong,
+  SiJaeger,
+  SiEventstore,
   // AI/LLMs
   SiOpenai,
+  SiAnthropic,
+  SiLangchain,
   // Cloud/AWS
   SiAmazon,
   SiAwslambda,
-  SiAmazonrds,
+  SiGooglecloud,
+  SiCloudflare,
+  SiTerraform,
+  SiVercel,
+  SiRender,
   // Databases
   SiPostgresql,
+  SiMysql,
   SiMongodb,
-  SiRedis,
-  SiPrisma,
+  SiElasticsearch,
+  SiApachecassandra,
+  SiAmazondynamodb,
   // DevOps
   SiDocker,
   SiKubernetes,
+  SiHelm,
+  SiJenkins,
+  SiGithubactions,
+  SiGitlab,
+  SiCircleci,
+  SiPrometheus,
+  SiGrafana,
+  SiAnsible,
   // APIs
   SiGraphql,
   SiApollographql,
+  SiSwagger,
+  SiPostman,
+
   // Testing
   SiJest,
+  SiVitest,
+  SiTestinglibrary,
   SiCypress,
+  SiJunit5,
+  SiApachejmeter,
+  SiK6,
+  // Security
+  SiOwasp,
   // General
   SiVectary,
 } from 'react-icons/si';
@@ -213,8 +281,10 @@ const getSkillIcon = (category: string) => {
       return <SiNodedotjs className="w-6 h-6" />;
     case 'database':
       return <SiPostgresql className="w-6 h-6" />;
-    case 'language':
-      return <SiSpring className="w-6 h-6" />;
+    case 'low-level':
+      return <SiC className="w-6 h-6" />;
+    case 'microservices':
+      return <SiApachekafka className="w-6 h-6" />;
     case 'devops':
       return <SiDocker className="w-6 h-6" />;
     case 'api':
@@ -225,6 +295,8 @@ const getSkillIcon = (category: string) => {
       return <SiAmazon className="w-6 h-6" />;
     case 'testing':
       return <SiJest className="w-6 h-6" />;
+    case 'security':
+      return <SiOwasp className="w-6 h-6" />;
     default:
       return <SiReact className="w-6 h-6" />;
   }
@@ -235,108 +307,300 @@ const getSubskillIcon = (iconName: string) => {
 
   switch (iconName) {
     // React/Next.js subskills
-    case 'react-hooks':
+    case 'typescript':
+      return <SiTypescript {...iconProps} />;
+    case 'react':
       return <SiReact {...iconProps} />;
-    case 'redux':
-      return <SiRedux {...iconProps} />;
     case 'nextjs':
       return <SiNextdotjs {...iconProps} />;
-    case 'server-components':
-      return <SiNextdotjs {...iconProps} />;
+    case 'redux':
+      return <SiRedux {...iconProps} />;
+    case 'zustand':
+      return <SiReact {...iconProps} />; // Fallback
+    case 'zod':
+      return <SiZod {...iconProps} />;
+    case 'tanstack-query':
+      return <SiReact {...iconProps} />; // Fallback
     case 'tailwind':
       return <SiTailwindcss {...iconProps} />;
+    case 'styled-components':
+      return <SiStyledcomponents {...iconProps} />;
+    case 'mui':
+      return <SiReact {...iconProps} />; // Fallback
+    case 'chakra':
+      return <SiChakraui {...iconProps} />;
+    case 'framer-motion':
+      return <SiFramer {...iconProps} />;
+    case 'react-hook-form':
+      return <SiReacthookform {...iconProps} />;
+    case 'storybook':
+      return <SiStorybook {...iconProps} />;
+    case 'vite':
+      return <SiVite {...iconProps} />;
 
     // Java/Spring subskills
-    case 'spring-boot':
+    case 'spring':
       return <SiSpring {...iconProps} />;
-    case 'jpa-hibernate':
+    case 'spring-boot':
+      return <SiSpringboot {...iconProps} />;
+    case 'hibernate':
       return <SiHibernate {...iconProps} />;
-    case 'rest-apis':
-      return <SiGraphql {...iconProps} />;
-    case 'microservices':
-      return <SiDocker {...iconProps} />;
+    case 'spring-security':
+      return <SiSpringsecurity {...iconProps} />;
+    case 'spring-mvc':
+      return <SiSpring {...iconProps} />;
+    case 'spring-webflux':
+      return <SiSpring {...iconProps} />; // Fallback
+    case 'java':
+      return <SiSpring {...iconProps} />;
+    case 'thymeleaf':
+      return <SiThymeleaf {...iconProps} />;
+    case 'maven':
+      return <SiSpring {...iconProps} />; // Fallback
+    case 'gradle':
+      return <SiGradle {...iconProps} />;
+    case 'flyway':
+      return <SiFlyway {...iconProps} />;
+    case 'liquibase':
+      return <SiLiquibase {...iconProps} />;
+    case 'jakarta-ee':
+      return <SiSpring {...iconProps} />; // Fallback
+    case 'jdbc':
+      return <SiSpring {...iconProps} />; // Fallback
+    case 'kotlin':
+      return <SiKotlin {...iconProps} />;
 
     // Node.js subskills
-    case 'express':
-      return <SiExpress {...iconProps} />;
     case 'nestjs':
       return <SiNestjs {...iconProps} />;
-    case 'authentication':
-      return <SiReact {...iconProps} />;
-    case 'websockets':
-      return <SiReact {...iconProps} />;
+    case 'express':
+      return <SiExpress {...iconProps} />;
+    case 'passport':
+      return <SiPassport {...iconProps} />;
+    case 'fastify':
+      return <SiFastify {...iconProps} />;
+    case 'socketio':
+      return <SiSocketdotio {...iconProps} />;
+    case 'prisma':
+      return <SiPrisma {...iconProps} />;
+    case 'sequelize':
+      return <SiSequelize {...iconProps} />;
+    case 'typeorm':
+      return <SiTypeorm {...iconProps} />;
+    case 'mongoose':
+      return <SiMongoose {...iconProps} />;
+    case 'nodemailer':
+      return <SiNodedotjs {...iconProps} />; // Fallback
+    case 'pm2':
+      return <SiPm2 {...iconProps} />;
+    case 'npm':
+      return <SiNpm {...iconProps} />;
+    case 'yarn':
+      return <SiYarn {...iconProps} />;
+    case 'stripe':
+      return <SiStripe {...iconProps} />;
+    case 'jwt':
+      return <SiNodedotjs {...iconProps} />; // Fallback
 
-    // AI/LLMs subskills
-    case 'mcp':
-      return <SiOpenai {...iconProps} />;
-    case 'rag':
-      return <SiVectary {...iconProps} />;
-    case 'vector-db':
-      return <SiVectary {...iconProps} />;
+    // Low-level languages
+    case 'c':
+      return <SiC {...iconProps} />;
+    case 'cpp':
+      return <SiCplusplus {...iconProps} />;
+    case 'rust':
+      return <SiRust {...iconProps} />;
+    case 'go':
+      return <SiGo {...iconProps} />;
+    case 'assembly':
+      return <SiAssemblyscript {...iconProps} />;
+    case 'arduino':
+      return <SiArduino {...iconProps} />;
+    case 'psoc':
+      return <SiC {...iconProps} />; // Fallback for PSoC
+    case 'memory':
+      return <SiC {...iconProps} />;
+    case 'system':
+      return <SiC {...iconProps} />;
+
+    // Microservices
+    case 'kafka':
+      return <SiApachekafka {...iconProps} />;
+    case 'rabbitmq':
+      return <SiRabbitmq {...iconProps} />;
+    case 'pulsar':
+      return <SiApachepulsar {...iconProps} />;
+    case 'grpc':
+      return <SiApachekafka {...iconProps} />; // Fallback
+    case 'istio':
+      return <SiIstio {...iconProps} />;
+    case 'kong':
+      return <SiKong {...iconProps} />;
+    case 'hystrix':
+      return <SiApachekafka {...iconProps} />; // Fallback
+    case 'jaeger':
+      return <SiJaeger {...iconProps} />;
+    case 'eventstore':
+      return <SiEventstore {...iconProps} />;
+
+    // AI/LLMs
     case 'prompt-engineering':
       return <SiOpenai {...iconProps} />;
-    case 'azure-openai':
+    case 'openai':
+      return <SiOpenai {...iconProps} />;
+    case 'anthropic':
+      return <SiAnthropic {...iconProps} />;
+    case 'mcp':
+      return <SiOpenai {...iconProps} />; // Fallback for MCP
+    case 'langchain':
+      return <SiLangchain {...iconProps} />;
+    case 'pinecone':
+      return <SiOpenai {...iconProps} />; // Fallback
+    case 'rag':
+      return <SiVectary {...iconProps} />;
+    case 'fine-tuning':
+      return <SiOpenai {...iconProps} />;
+    case 'model-deployment':
       return <SiOpenai {...iconProps} />;
 
-    // Cloud/AWS subskills
-    case 'aws-s3':
+    // Cloud/AWS
+    case 'aws':
       return <SiAmazon {...iconProps} />;
-    case 'aws-lambda':
+    case 'azure':
+      return <SiAmazon {...iconProps} />; // Fallback
+    case 'gcp':
+      return <SiGooglecloud {...iconProps} />;
+    case 'cloudflare':
+      return <SiCloudflare {...iconProps} />;
+    case 'lambda':
       return <SiAwslambda {...iconProps} />;
-    case 'aws-rds':
-      return <SiAmazonrds {...iconProps} />;
     case 'azure-functions':
-      return <SiOpenai {...iconProps} />;
-    case 'azure-aks':
-      return <SiKubernetes {...iconProps} />;
-    case 'cdn':
+      return <SiAmazon {...iconProps} />; // Fallback
+    case 'gcp-functions':
+      return <SiGooglecloud {...iconProps} />;
+    case 's3':
       return <SiAmazon {...iconProps} />;
+    case 'azure-storage':
+      return <SiAmazon {...iconProps} />; // Fallback
+    case 'cicd':
+      return <SiGithubactions {...iconProps} />;
+    case 'vercel':
+      return <SiVercel {...iconProps} />;
+    case 'render':
+      return <SiRender {...iconProps} />;
+    case 'terraform':
+      return <SiTerraform {...iconProps} />;
+    case 'cloudformation':
+      return <SiAmazon {...iconProps} />; // Fallback
 
-    // Database subskills
-    case 'query-optimization':
+    // Database
+    case 'postgresql':
       return <SiPostgresql {...iconProps} />;
-    case 'database-design':
+    case 'mysql':
+      return <SiMysql {...iconProps} />;
+    case 'mongodb':
       return <SiMongodb {...iconProps} />;
     case 'redis':
       return <SiRedis {...iconProps} />;
-    case 'prisma':
-      return <SiPrisma {...iconProps} />;
+    case 'elasticsearch':
+      return <SiElasticsearch {...iconProps} />;
+    case 'cassandra':
+      return <SiApachecassandra {...iconProps} />;
+    case 'dynamodb':
+      return <SiAmazondynamodb {...iconProps} />;
+    case 'database-design':
+      return <SiPostgresql {...iconProps} />;
+    case 'query-optimization':
+      return <SiPostgresql {...iconProps} />;
     case 'data-migration':
       return <SiPostgresql {...iconProps} />;
 
-    // DevOps subskills
-    case 'container-orchestration':
-      return <SiKubernetes {...iconProps} />;
-    case 'cicd':
+    // DevOps
+    case 'docker':
       return <SiDocker {...iconProps} />;
     case 'kubernetes':
       return <SiKubernetes {...iconProps} />;
-    case 'infrastructure-as-code':
-      return <SiDocker {...iconProps} />;
+    case 'helm':
+      return <SiHelm {...iconProps} />;
+    case 'jenkins':
+      return <SiJenkins {...iconProps} />;
+    case 'github-actions':
+      return <SiGithubactions {...iconProps} />;
+    case 'gitlab':
+      return <SiGitlab {...iconProps} />;
+    case 'circleci':
+      return <SiCircleci {...iconProps} />;
+    case 'prometheus':
+      return <SiPrometheus {...iconProps} />;
+    case 'grafana':
+      return <SiGrafana {...iconProps} />;
+    case 'ansible':
+      return <SiAnsible {...iconProps} />;
 
-    // API subskills
-    case 'apollo-graphql':
+    // API
+    case 'graphql':
+      return <SiGraphql {...iconProps} />;
+    case 'apollo':
       return <SiApollographql {...iconProps} />;
-    case 'api-design':
+    case 'rest':
+      return <SiGraphql {...iconProps} />;
+    case 'swagger':
+      return <SiSwagger {...iconProps} />;
+    case 'postman':
+      return <SiPostman {...iconProps} />;
+    case 'api-versioning':
       return <SiGraphql {...iconProps} />;
     case 'rate-limiting':
       return <SiGraphql {...iconProps} />;
-    case 'documentation':
+    case 'oauth':
+      return <SiGraphql {...iconProps} />; // Fallback
+    case 'webhooks':
       return <SiGraphql {...iconProps} />;
-    case 'testing':
-      return <SiJest {...iconProps} />;
+    case 'api-gateway':
+      return <SiKong {...iconProps} />;
 
-    // Testing subskills
+    // Testing
+    case 'tdd':
+      return <SiJest {...iconProps} />;
     case 'jest':
       return <SiJest {...iconProps} />;
-    case 'playwright':
-      return <SiJest {...iconProps} />;
+    case 'vitest':
+      return <SiVitest {...iconProps} />;
+    case 'rtl':
+      return <SiTestinglibrary {...iconProps} />;
     case 'cypress':
       return <SiCypress {...iconProps} />;
-    case 'testing-library':
-      return <SiJest {...iconProps} />;
-    case 'contract-testing':
-      return <SiJest {...iconProps} />;
+    case 'playwright':
+      return <SiJest {...iconProps} />; // Fallback
+    case 'junit':
+      return <SiJunit5 {...iconProps} />;
+    case 'testcontainers':
+      return <SiDocker {...iconProps} />; // Fallback
+    case 'jmeter':
+      return <SiApachejmeter {...iconProps} />;
+    case 'mockito':
+      return <SiJest {...iconProps} />; // Fallback
+    case 'pact':
+      return <SiJest {...iconProps} />; // Fallback
+    case 'k6':
+      return <SiK6 {...iconProps} />;
+
+    // Security
+    case 'owasp':
+      return <SiOwasp {...iconProps} />;
+    case 'tls':
+      return <SiOwasp {...iconProps} />; // Fallback
+    case 'csp':
+      return <SiOwasp {...iconProps} />;
+    case 'performance':
+      return <SiVectary {...iconProps} />;
+    case 'caching':
+      return <SiRedis {...iconProps} />;
+    case 'cdn':
+      return <SiCloudflare {...iconProps} />;
+    case 'code-splitting':
+      return <SiVite {...iconProps} />;
+    case 'bundle-analyzer':
+      return <SiVite {...iconProps} />;
 
     default:
       return <SiReact {...iconProps} />;
