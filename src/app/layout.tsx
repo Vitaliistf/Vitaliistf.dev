@@ -81,9 +81,21 @@ export const metadata: Metadata = {
     site: '@vitaliistf',
   },
   other: {
-    // Telegram specific metadata
+    // Telegram specific metadata for better link previews
     'telegram:channel': '@vitaliistf_dev',
     'telegram:site': 'https://t.me/vitaliistf_dev',
+    'telegram:title': 'Vitalii Stefaniv - Senior Full-Stack Developer',
+    'telegram:description':
+      '🚀 5+ years building scalable web apps with React, Next.js, Node.js & Java Spring Boot. Specializing in AI integrations, microservices & cloud architecture. View my portfolio & connect!',
+    'telegram:image': '/logo-notext.png',
+    'telegram:url': 'https://vitaliistf.dev',
+
+    // Additional Telegram metadata
+    'tg:title': 'Vitalii Stefaniv - Senior Full-Stack Developer',
+    'tg:description':
+      '🚀 5+ years building scalable web apps with React, Next.js, Node.js & Java Spring Boot. Specializing in AI integrations, microservices & cloud architecture.',
+    'tg:image': '/logo-notext.png',
+    'tg:site': '@vitaliistf_dev',
 
     // LinkedIn specific
     'linkedin:owner': 'vitaliistf',
