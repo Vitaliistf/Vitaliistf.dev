@@ -1,6 +1,14 @@
 'use client';
 
-import { Briefcase, GraduationCap, Award, ExternalLink } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import {
+  Briefcase,
+  GraduationCap,
+  Award,
+  ExternalLink,
+  Trophy,
+  Code,
+} from 'lucide-react';
 import Section from './Section';
 
 interface Experience {
@@ -32,17 +40,73 @@ interface Certification {
   url?: string;
 }
 
+interface Achievement {
+  id: number;
+  title: string;
+  description: string;
+  date: string;
+  type: string;
+  icon: string;
+  stats?: {
+    problemsSolved: number;
+    platform: string;
+  };
+}
+
 interface ExperienceSectionProps {
   experience: Experience[];
   education: Education[];
   certifications: Certification[];
+  achievements: Achievement[];
 }
 
 const ExperienceSection = ({
   experience,
   education,
   certifications,
+  achievements,
 }: ExperienceSectionProps) => {
+  const [leetcodeStats, setLeetcodeStats] = useState<{
+    totalSolved: number;
+  } | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchLeetCodeStats = async () => {
+      try {
+        // Using a public LeetCode stats API
+        const response = await fetch(
+          'https://leetcode-stats-api.herokuapp.com/vitaliistf'
+        );
+        if (response.ok) {
+          const data = await response.json();
+          setLeetcodeStats({ totalSolved: data.totalSolved });
+        }
+      } catch (error) {
+        console.error('Error fetching LeetCode stats:', error);
+        // Fallback to static value if API fails
+        setLeetcodeStats({ totalSolved: 600 });
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchLeetCodeStats();
+  }, []);
+
+  // Update achievements with dynamic LeetCode stats
+  const updatedAchievements = achievements.map((achievement) => {
+    if (achievement.type === 'coding' && achievement.stats && leetcodeStats) {
+      return {
+        ...achievement,
+        stats: {
+          ...achievement.stats,
+          problemsSolved: leetcodeStats.totalSolved,
+        },
+      };
+    }
+    return achievement;
+  });
   return (
     <Section id="experience">
       <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center leading-[1.2] bg-gradient-to-r from-[rgb(230,170,120)] to-white bg-clip-text text-transparent">
@@ -179,6 +243,57 @@ const ExperienceSection = ({
                   <div key={cert.id}>{CardContent}</div>
                 );
               })}
+            </div>
+          </div>
+
+          {/* Other Achievements */}
+          <div>
+            <h3 className="text-xl font-bold mb-6 text-[rgb(230,170,120)] flex items-center">
+              <Trophy className="w-5 h-5 mr-2" />
+              Other Achievements
+            </h3>
+            <div className="space-y-4">
+              {updatedAchievements.map((achievement) => (
+                <div
+                  key={achievement.id}
+                  className="backdrop-blur-md bg-white/5 rounded-lg p-4 border border-[rgb(230,170,120)]/20 hover:border-[rgb(230,170,120)]/40 transition-all duration-300 hover:scale-[1.02]"
+                >
+                  <div className="flex items-start justify-between">
+                    <div className="flex items-start space-x-3">
+                      <div className="text-[rgb(230,170,120)] mt-1">
+                        {achievement.icon === 'trophy' && (
+                          <Trophy className="w-5 h-5" />
+                        )}
+                        {achievement.icon === 'code' && (
+                          <Code className="w-5 h-5" />
+                        )}
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex items-center justify-between">
+                          <h4 className="font-semibold text-white text-sm">
+                            {achievement.title}
+                          </h4>
+                          {achievement.stats && (
+                            <div className="text-right">
+                              <div className="text-lg font-bold text-[rgb(230,170,120)]">
+                                {isLoading
+                                  ? '...'
+                                  : `${achievement.stats.problemsSolved}+`}
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                        <p className="text-xs text-white/70 mt-1">
+                          {achievement.description}
+                        </p>
+                        <p className="text-xs text-white/60 mt-2">
+                          {achievement.date}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>

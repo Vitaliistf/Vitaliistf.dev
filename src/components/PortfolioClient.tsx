@@ -89,6 +89,18 @@ interface PortfolioClientProps {
       date: string;
       credential: string;
     }>;
+    achievements: Array<{
+      id: number;
+      title: string;
+      description: string;
+      date: string;
+      type: string;
+      icon: string;
+      stats?: {
+        problemsSolved: number;
+        platform: string;
+      };
+    }>;
   };
 }
 
@@ -171,6 +183,7 @@ const PortfolioClient = ({
         experience={experienceData.experience}
         education={experienceData.education}
         certifications={experienceData.certifications}
+        achievements={experienceData.achievements}
       />
 
       <TelegramSection telegram={portfolioData.telegram} />

@@ -170,5 +170,27 @@
       "credential": "EPAMJava2401",
       "url": "https://certificates.epam.com/certificates/840f7636-5b4a-4912-aea9-14f370e9cdb1"
     }
+  ],
+  "achievements": [
+    {
+      "id": 1,
+      "title": "3rd Place in Infineon Autumn Hackathon '23",
+      "description": "Competed in a 48-hour hackathon focused on innovative solutions for automotive and industrial applications",
+      "date": "Nov 2023",
+      "type": "hackathon",
+      "icon": "trophy"
+    },
+    {
+      "id": 2,
+      "title": "LeetCode Problem Solving",
+      "description": "Consistently solving algorithmic challenges to improve problem-solving skills",
+      "date": "Ongoing",
+      "type": "coding",
+      "icon": "code",
+      "stats": {
+        "problemsSolved": 550,
+        "platform": "LeetCode"
+      }
+    }
   ]
 }
