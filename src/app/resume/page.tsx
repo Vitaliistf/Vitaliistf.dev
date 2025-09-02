@@ -40,9 +40,9 @@ export default function ResumePage() {
             </h1>
 
             <p className="text-lg md:text-xl text-white/80 mb-8 max-w-2xl mx-auto leading-relaxed">
-              Thanks for your interest! I'm currently not actively seeking new
-              opportunities, but I appreciate you taking the time to check out
-              my work.
+              Thanks for your interest! I&apos;m currently not actively seeking
+              new opportunities, but I appreciate you taking the time to check
+              out my work.
             </p>
           </div>
 

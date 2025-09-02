@@ -629,6 +629,18 @@ const SkillTooltip = ({
   children: React.ReactNode;
 }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detect mobile devices
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768 || 'ontouchstart' in window);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const { refs, floatingStyles, context } = useFloating({
     open: isOpen,
@@ -658,7 +670,7 @@ const SkillTooltip = ({
       <div ref={refs.setReference} {...getReferenceProps()} className="w-full">
         {children}
       </div>
-      {isOpen && (
+      {isOpen && !isMobile && (
         <FloatingPortal>
           <div
             ref={refs.setFloating}
@@ -762,7 +774,7 @@ const SkillsSection = ({ skills }: SkillsSectionProps) => {
                   id={`skill-${index}-details`}
                   className={`md:hidden overflow-hidden transition-all duration-300 ${
                     expandedSkill === skill.name
-                      ? 'mt-3 max-h-96 opacity-100'
+                      ? 'mt-3 opacity-100'
                       : 'max-h-0 opacity-0'
                   }`}
                 >

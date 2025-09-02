@@ -24,8 +24,8 @@ const Navigation = ({ activeSection, scrollToSection }: NavigationProps) => {
         isLoaded ? 'translate-y-0' : '-translate-y-full'
       }`}
     >
-      <div className="backdrop-blur-md bg-[rgb(36,36,36)]/80 border-b border-[rgb(230,170,120)]/20">
-        <div className="max-w-6xl mx-auto px-6 py-4">
+      <div className="backdrop-blur-md bg-[rgb(36,36,36)]/80 border-b border-[rgb(230,170,120)]/20 overflow-visible">
+        <div className="max-w-6xl mx-auto px-6 py-4 relative">
           <div className="flex justify-between items-center">
             <div
               className="text-2xl font-bold bg-gradient-to-r from-[rgb(230,170,120)] to-white bg-clip-text text-transparent cursor-pointer"
@@ -78,8 +78,8 @@ const Navigation = ({ activeSection, scrollToSection }: NavigationProps) => {
             </div>
           </div>
           {isMenuOpen && (
-            <div className="md:hidden mt-4 pt-2 border-t border-[rgb(230,170,120)]/20 mobile-menu">
-              <div className="grid gap-1">
+            <div className="md:hidden mt-4 pt-2 border-t border-[rgb(230,170,120)]/20 mobile-menu relative z-[60]">
+              <div className="grid gap-1 pb-2">
                 {['About', 'Skills', 'Experience', 'Telegram', 'Contact'].map(
                   (item) => (
                     <button
@@ -88,7 +88,7 @@ const Navigation = ({ activeSection, scrollToSection }: NavigationProps) => {
                         scrollToSection(item.toLowerCase());
                         setIsMenuOpen(false);
                       }}
-                      className={`w-full text-center py-2 px-1 rounded hover:text-[rgb(230,170,120)] transition-colors ${
+                      className={`w-full text-center py-3 px-1 rounded hover:text-[rgb(230,170,120)] transition-colors ${
                         activeSection === item.toLowerCase()
                           ? 'text-[rgb(230,170,120)]'
                           : 'text-white/80'
