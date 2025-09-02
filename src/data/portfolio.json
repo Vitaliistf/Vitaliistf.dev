@@ -19,7 +19,7 @@
     "specialties": [
       {
         "title": "Frontend Excellence",
-        "technologies": "React, Vue, Next.js, TypeScript, Tailwind CSS"
+        "technologies": "React, Next.js, TypeScript, SCSS, Tailwind CSS"
       },
       {
         "title": "Backend Mastery",
@@ -27,7 +27,7 @@
       },
       {
         "title": "Cloud & DevOps",
-        "technologies": "AWS, Azure, Docker, Kubernetes, CI/CD, Terraform"
+        "technologies": "AWS, Azure, GCP, Docker, Kubernetes, CI/CD"
       }
     ]
   },
