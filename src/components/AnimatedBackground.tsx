@@ -9,6 +9,7 @@ type Star = {
   speed: number;
   opacity: number;
   twinkle: number;
+  trail: { x: number; y: number; opacity: number }[];
 };
 
 const AnimatedBackground = () => {
@@ -41,6 +42,7 @@ const AnimatedBackground = () => {
         speed: Math.random() * 0.5 + 0.2,
         opacity: Math.random() * 0.8 + 0.2,
         twinkle: Math.random() * Math.PI * 2,
+        trail: [],
       }));
     };
 
@@ -51,6 +53,7 @@ const AnimatedBackground = () => {
       star.speed = Math.random() * 0.5 + 0.2;
       star.opacity = Math.random() * 0.8 + 0.2;
       star.twinkle = Math.random() * Math.PI * 2;
+      star.trail = [];
     };
 
     const draw = (time: number) => {
@@ -66,18 +69,54 @@ const AnimatedBackground = () => {
       for (let i = 0; i < starsRef.current.length; i++) {
         const star = starsRef.current[i];
 
-        // Move star down
-        star.y += star.speed * dt * 60;
+        // Store previous position for trail
+        const prevX = star.x;
+        const prevY = star.y;
+
+        // Move star at 45-degree angle (down-right)
+        const moveDistance = star.speed * dt * 60;
+        star.x += moveDistance * 0.707; // cos(45°) ≈ 0.707
+        star.y += moveDistance * 0.707; // sin(45°) ≈ 0.707
         star.twinkle += dt * 2;
 
+        // Add current position to trail
+        star.trail.push({
+          x: prevX,
+          y: prevY,
+          opacity: star.opacity,
+        });
+
+        // Limit trail length and fade older points
+        if (star.trail.length > 8) {
+          star.trail.shift();
+        }
+
+        // Fade trail points
+        for (let j = 0; j < star.trail.length; j++) {
+          star.trail[j].opacity *= 0.85;
+        }
+
         // Respawn if off screen
-        if (star.y > h + 10) {
+        if (star.y > h + 10 || star.x > w + 10) {
           respawnStar(star, w);
         }
 
         // Calculate twinkling opacity
         const twinkleFactor = (Math.sin(star.twinkle) + 1) * 0.5;
         const currentOpacity = star.opacity * (0.3 + twinkleFactor * 0.7);
+
+        // Draw trail
+        if (star.trail.length > 1) {
+          ctx.strokeStyle = `rgba(230, 170, 120, 0.3)`;
+          ctx.lineWidth = 1;
+          ctx.lineCap = 'round';
+          ctx.beginPath();
+          ctx.moveTo(star.trail[0].x, star.trail[0].y);
+          for (let j = 1; j < star.trail.length; j++) {
+            ctx.lineTo(star.trail[j].x, star.trail[j].y);
+          }
+          ctx.stroke();
+        }
 
         // Draw star as a simple circle
         ctx.fillStyle = `rgba(230, 170, 120, ${currentOpacity})`;
