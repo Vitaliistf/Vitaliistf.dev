@@ -68,7 +68,7 @@ export const metadata: Metadata = {
     title: 'Vitalii Stefaniv - Senior Full-Stack Developer',
     description:
       'Senior Full-Stack Developer with 5+ years of experience crafting scalable web applications using modern technologies.',
-    images: ['/portrait-image.png'],
+    images: ['/logo-notext.png'],
     creator: '@vitaliistf',
   },
   alternates: {
