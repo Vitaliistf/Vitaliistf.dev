@@ -70,7 +70,7 @@ const TelegramSection = ({ telegram }: TelegramSectionProps) => {
       : telegram.highlights;
 
   return (
-    <Section id="telegram">
+    <Section id="channel">
       <GlassCard className="p-6 md:p-8">
         {/* Header */}
         <div className="text-center mb-6">

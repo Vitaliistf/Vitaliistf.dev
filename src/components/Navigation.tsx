@@ -49,7 +49,7 @@ const Navigation = ({ activeSection, scrollToSection }: NavigationProps) => {
                 )}
               </button>
               <div className="hidden md:flex space-x-8 items-center">
-                {['About', 'Skills', 'Experience', 'Telegram', 'Contact'].map(
+                {['About', 'Skills', 'Experience', 'Channel', 'Contact'].map(
                   (item) => (
                     <button
                       key={item}
@@ -80,7 +80,7 @@ const Navigation = ({ activeSection, scrollToSection }: NavigationProps) => {
           {isMenuOpen && (
             <div className="md:hidden mt-4 pt-2 border-t border-[rgb(230,170,120)]/20 mobile-menu relative z-[60]">
               <div className="grid gap-1 pb-2">
-                {['About', 'Skills', 'Experience', 'Telegram', 'Contact'].map(
+                {['About', 'Skills', 'Experience', 'Channel', 'Contact'].map(
                   (item) => (
                     <button
                       key={item}
