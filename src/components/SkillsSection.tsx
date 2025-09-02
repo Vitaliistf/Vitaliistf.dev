@@ -2,33 +2,43 @@
 
 import { useState, useEffect } from 'react';
 import Section from './Section';
+import { ChevronDown } from 'lucide-react';
 import {
-  Code,
-  Database,
-  Globe,
-  Terminal,
-  Layers,
-  Server,
-  Zap,
-  Network,
-  Shield,
-  Radio,
-  Search,
-  RefreshCw,
-  Type,
-  Box,
-  Star,
-  Package,
-  Settings,
-  Workflow,
-  Layout,
-  Clock,
-  FileText,
-  CheckCircle,
-  Palette,
-  Route,
-  ChevronDown,
-} from 'lucide-react';
+  // React/Next.js
+  SiReact,
+  SiNextdotjs,
+  SiRedux,
+  SiTailwindcss,
+  // Java/Spring
+  SiSpring,
+  SiHibernate,
+  // Node.js
+  SiNodedotjs,
+  SiExpress,
+  SiNestjs,
+  // AI/LLMs
+  SiOpenai,
+  // Cloud/AWS
+  SiAmazon,
+  SiAwslambda,
+  SiAmazonrds,
+  // Databases
+  SiPostgresql,
+  SiMongodb,
+  SiRedis,
+  SiPrisma,
+  // DevOps
+  SiDocker,
+  SiKubernetes,
+  // APIs
+  SiGraphql,
+  SiApollographql,
+  // Testing
+  SiJest,
+  SiCypress,
+  // General
+  SiVectary,
+} from 'react-icons/si';
 
 interface Subskill {
   name: string;
@@ -49,19 +59,25 @@ interface SkillsSectionProps {
 const getSkillIcon = (category: string) => {
   switch (category) {
     case 'frontend':
-      return <Code className="w-6 h-6" />;
+      return <SiReact className="w-6 h-6" />;
     case 'backend':
-      return <Server className="w-6 h-6" />;
+      return <SiNodedotjs className="w-6 h-6" />;
     case 'database':
-      return <Database className="w-6 h-6" />;
+      return <SiPostgresql className="w-6 h-6" />;
     case 'language':
-      return <Terminal className="w-6 h-6" />;
+      return <SiSpring className="w-6 h-6" />;
     case 'devops':
-      return <Layers className="w-6 h-6" />;
+      return <SiDocker className="w-6 h-6" />;
     case 'api':
-      return <Globe className="w-6 h-6" />;
+      return <SiGraphql className="w-6 h-6" />;
+    case 'ai':
+      return <SiOpenai className="w-6 h-6" />;
+    case 'cloud':
+      return <SiAmazon className="w-6 h-6" />;
+    case 'testing':
+      return <SiJest className="w-6 h-6" />;
     default:
-      return <Code className="w-6 h-6" />;
+      return <SiReact className="w-6 h-6" />;
   }
 };
 
@@ -69,58 +85,112 @@ const getSubskillIcon = (iconName: string) => {
   const iconProps = { className: 'w-4 h-4' };
 
   switch (iconName) {
-    case 'hook':
-      return <Code {...iconProps} />;
-    case 'database':
-      return <Database {...iconProps} />;
-    case 'route':
-      return <Route {...iconProps} />;
-    case 'server':
-      return <Server {...iconProps} />;
-    case 'palette':
-      return <Palette {...iconProps} />;
-    case 'zap':
-      return <Zap {...iconProps} />;
-    case 'layers':
-      return <Layers {...iconProps} />;
-    case 'network':
-      return <Network {...iconProps} />;
-    case 'shield':
-      return <Shield {...iconProps} />;
-    case 'radio':
-      return <Radio {...iconProps} />;
-    case 'search':
-      return <Search {...iconProps} />;
-    case 'refresh':
-      return <RefreshCw {...iconProps} />;
-    case 'type':
-      return <Type {...iconProps} />;
-    case 'box':
-      return <Box {...iconProps} />;
-    case 'star':
-      return <Star {...iconProps} />;
-    case 'package':
-      return <Package {...iconProps} />;
-    case 'container':
-      return <Box {...iconProps} />;
-    case 'workflow':
-      return <Workflow {...iconProps} />;
-    case 'settings':
-      return <Settings {...iconProps} />;
-    case 'code':
-      return <Code {...iconProps} />;
-    case 'globe':
-      return <Globe {...iconProps} />;
-    case 'layout':
-      return <Layout {...iconProps} />;
-    case 'clock':
-      return <Clock {...iconProps} />;
-    case 'file-text':
-      return <FileText {...iconProps} />;
-    case 'check-circle':
-      return <CheckCircle {...iconProps} />;
+    // React/Next.js subskills
+    case 'react-hooks':
+      return <SiReact {...iconProps} />;
+    case 'redux':
+      return <SiRedux {...iconProps} />;
+    case 'nextjs':
+      return <SiNextdotjs {...iconProps} />;
+    case 'server-components':
+      return <SiNextdotjs {...iconProps} />;
+    case 'tailwind':
+      return <SiTailwindcss {...iconProps} />;
+
+    // Java/Spring subskills
+    case 'spring-boot':
+      return <SiSpring {...iconProps} />;
+    case 'jpa-hibernate':
+      return <SiHibernate {...iconProps} />;
+    case 'rest-apis':
+      return <SiGraphql {...iconProps} />;
+    case 'microservices':
+      return <SiDocker {...iconProps} />;
+
+    // Node.js subskills
+    case 'express':
+      return <SiExpress {...iconProps} />;
+    case 'nestjs':
+      return <SiNestjs {...iconProps} />;
+    case 'authentication':
+      return <SiReact {...iconProps} />;
+    case 'websockets':
+      return <SiReact {...iconProps} />;
+
+    // AI/LLMs subskills
+    case 'mcp':
+      return <SiOpenai {...iconProps} />;
+    case 'rag':
+      return <SiVectary {...iconProps} />;
+    case 'vector-db':
+      return <SiVectary {...iconProps} />;
+    case 'prompt-engineering':
+      return <SiOpenai {...iconProps} />;
+    case 'azure-openai':
+      return <SiOpenai {...iconProps} />;
+
+    // Cloud/AWS subskills
+    case 'aws-s3':
+      return <SiAmazon {...iconProps} />;
+    case 'aws-lambda':
+      return <SiAwslambda {...iconProps} />;
+    case 'aws-rds':
+      return <SiAmazonrds {...iconProps} />;
+    case 'azure-functions':
+      return <SiOpenai {...iconProps} />;
+    case 'azure-aks':
+      return <SiKubernetes {...iconProps} />;
+    case 'cdn':
+      return <SiAmazon {...iconProps} />;
+
+    // Database subskills
+    case 'query-optimization':
+      return <SiPostgresql {...iconProps} />;
+    case 'database-design':
+      return <SiMongodb {...iconProps} />;
+    case 'redis':
+      return <SiRedis {...iconProps} />;
+    case 'prisma':
+      return <SiPrisma {...iconProps} />;
+    case 'data-migration':
+      return <SiPostgresql {...iconProps} />;
+
+    // DevOps subskills
+    case 'container-orchestration':
+      return <SiKubernetes {...iconProps} />;
+    case 'cicd':
+      return <SiDocker {...iconProps} />;
+    case 'kubernetes':
+      return <SiKubernetes {...iconProps} />;
+    case 'infrastructure-as-code':
+      return <SiDocker {...iconProps} />;
+
+    // API subskills
+    case 'apollo-graphql':
+      return <SiApollographql {...iconProps} />;
+    case 'api-design':
+      return <SiGraphql {...iconProps} />;
+    case 'rate-limiting':
+      return <SiGraphql {...iconProps} />;
+    case 'documentation':
+      return <SiGraphql {...iconProps} />;
+    case 'testing':
+      return <SiJest {...iconProps} />;
+
+    // Testing subskills
+    case 'jest':
+      return <SiJest {...iconProps} />;
+    case 'playwright':
+      return <SiJest {...iconProps} />;
+    case 'cypress':
+      return <SiCypress {...iconProps} />;
+    case 'testing-library':
+      return <SiJest {...iconProps} />;
+    case 'contract-testing':
+      return <SiJest {...iconProps} />;
+
     default:
-      return <Code {...iconProps} />;
+      return <SiReact {...iconProps} />;
   }
 };
 

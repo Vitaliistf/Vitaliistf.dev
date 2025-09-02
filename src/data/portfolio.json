@@ -64,11 +64,11 @@
       "level": 95,
       "category": "frontend",
       "subskills": [
-        { "name": "React Hooks", "icon": "hook" },
-        { "name": "Redux/Zustand", "icon": "database" },
-        { "name": "Next.js App Router", "icon": "route" },
-        { "name": "Server Components", "icon": "server" },
-        { "name": "Tailwind CSS", "icon": "palette" }
+        { "name": "React Hooks", "icon": "react-hooks" },
+        { "name": "Redux/Zustand", "icon": "redux" },
+        { "name": "Next.js App Router", "icon": "nextjs" },
+        { "name": "Server Components", "icon": "server-components" },
+        { "name": "Tailwind CSS", "icon": "tailwind" }
       ]
     },
     {
@@ -76,10 +76,10 @@
       "level": 80,
       "category": "backend",
       "subskills": [
-        { "name": "Spring Boot", "icon": "server" },
-        { "name": "JPA/Hibernate", "icon": "database" },
-        { "name": "REST APIs", "icon": "layout" },
-        { "name": "Microservices", "icon": "network" }
+        { "name": "Spring Boot", "icon": "spring-boot" },
+        { "name": "JPA/Hibernate", "icon": "jpa-hibernate" },
+        { "name": "REST APIs", "icon": "rest-apis" },
+        { "name": "Microservices", "icon": "microservices" }
       ]
     },
     {
@@ -87,11 +87,11 @@
       "level": 90,
       "category": "backend",
       "subskills": [
-        { "name": "Express.js", "icon": "zap" },
-        { "name": "NestJS", "icon": "layers" },
-        { "name": "Microservices", "icon": "network" },
-        { "name": "Authentication", "icon": "shield" },
-        { "name": "WebSockets", "icon": "radio" }
+        { "name": "Express.js", "icon": "express" },
+        { "name": "NestJS", "icon": "nestjs" },
+        { "name": "Microservices", "icon": "microservices" },
+        { "name": "Authentication", "icon": "authentication" },
+        { "name": "WebSockets", "icon": "websockets" }
       ]
     },
     {
@@ -99,11 +99,11 @@
       "level": 78,
       "category": "ai",
       "subskills": [
-        { "name": "MCP (Model Context Protocol)", "icon": "workflow" },
-        { "name": "RAG Pipelines", "icon": "search" },
-        { "name": "Vector Databases", "icon": "database" },
-        { "name": "Prompt Engineering", "icon": "type" },
-        { "name": "Azure OpenAI", "icon": "globe" }
+        { "name": "MCP (Model Context Protocol)", "icon": "mcp" },
+        { "name": "RAG Pipelines", "icon": "rag" },
+        { "name": "Vector Databases", "icon": "vector-db" },
+        { "name": "Prompt Engineering", "icon": "prompt-engineering" },
+        { "name": "Azure OpenAI", "icon": "azure-openai" }
       ]
     },
     {
@@ -111,12 +111,12 @@
       "level": 86,
       "category": "cloud",
       "subskills": [
-        { "name": "AWS S3", "icon": "globe" },
-        { "name": "AWS Lambda", "icon": "zap" },
-        { "name": "AWS RDS", "icon": "database" },
-        { "name": "Azure Functions", "icon": "zap" },
-        { "name": "Azure AKS", "icon": "settings" },
-        { "name": "CDN/CloudFront", "icon": "globe" }
+        { "name": "AWS S3", "icon": "aws-s3" },
+        { "name": "AWS Lambda", "icon": "aws-lambda" },
+        { "name": "AWS RDS", "icon": "aws-rds" },
+        { "name": "Azure Functions", "icon": "azure-functions" },
+        { "name": "Azure AKS", "icon": "azure-aks" },
+        { "name": "CDN/CloudFront", "icon": "cdn" }
       ]
     },
     {
@@ -124,11 +124,11 @@
       "level": 88,
       "category": "database",
       "subskills": [
-        { "name": "Query Optimization", "icon": "search" },
-        { "name": "Database Design", "icon": "database" },
-        { "name": "Redis Caching", "icon": "zap" },
-        { "name": "Prisma ORM", "icon": "layers" },
-        { "name": "Data Migration", "icon": "refresh" }
+        { "name": "Query Optimization", "icon": "query-optimization" },
+        { "name": "Database Design", "icon": "database-design" },
+        { "name": "Redis Caching", "icon": "redis" },
+        { "name": "Prisma ORM", "icon": "prisma" },
+        { "name": "Data Migration", "icon": "data-migration" }
       ]
     },
     {
@@ -136,12 +136,15 @@
       "level": 85,
       "category": "devops",
       "subskills": [
-        { "name": "Container Orchestration", "icon": "container" },
-        { "name": "CI/CD Pipelines", "icon": "workflow" },
-        { "name": "AWS Lambda", "icon": "zap" },
-        { "name": "Azure AKS", "icon": "settings" },
-        { "name": "Kubernetes", "icon": "settings" },
-        { "name": "Infrastructure as Code", "icon": "code" }
+        {
+          "name": "Container Orchestration",
+          "icon": "container-orchestration"
+        },
+        { "name": "CI/CD Pipelines", "icon": "cicd" },
+        { "name": "AWS Lambda", "icon": "aws-lambda" },
+        { "name": "Azure AKS", "icon": "azure-aks" },
+        { "name": "Kubernetes", "icon": "kubernetes" },
+        { "name": "Infrastructure as Code", "icon": "infrastructure-as-code" }
       ]
     },
     {
@@ -149,11 +152,11 @@
       "level": 87,
       "category": "api",
       "subskills": [
-        { "name": "Apollo GraphQL", "icon": "globe" },
-        { "name": "API Design", "icon": "layout" },
-        { "name": "Rate Limiting", "icon": "clock" },
-        { "name": "Documentation", "icon": "file-text" },
-        { "name": "Testing", "icon": "check-circle" }
+        { "name": "Apollo GraphQL", "icon": "apollo-graphql" },
+        { "name": "API Design", "icon": "api-design" },
+        { "name": "Rate Limiting", "icon": "rate-limiting" },
+        { "name": "Documentation", "icon": "documentation" },
+        { "name": "Testing", "icon": "testing" }
       ]
     },
     {
@@ -161,11 +164,11 @@
       "level": 82,
       "category": "testing",
       "subskills": [
-        { "name": "Jest", "icon": "check-circle" },
-        { "name": "Playwright", "icon": "check-circle" },
-        { "name": "Cypress", "icon": "check-circle" },
-        { "name": "Testing Library", "icon": "check-circle" },
-        { "name": "Contract Testing", "icon": "file-text" }
+        { "name": "Jest", "icon": "jest" },
+        { "name": "Playwright", "icon": "playwright" },
+        { "name": "Cypress", "icon": "cypress" },
+        { "name": "Testing Library", "icon": "testing-library" },
+        { "name": "Contract Testing", "icon": "contract-testing" }
       ]
     }
   ]
