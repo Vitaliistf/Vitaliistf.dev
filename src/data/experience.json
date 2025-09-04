@@ -2,9 +2,9 @@
   "experience": [
     {
       "id": 1,
-      "company": "Appexoft",
-      "position": "Full-stack Developer",
-      "startDate": "Oct 2024",
+      "company": "Independent",
+      "position": "Senior Software Engineer",
+      "startDate": "Nov 2024",
       "endDate": "Present",
       "description": "Developing full-stack applications with modern React/Next.js frontend, Node.js/Express backend, and Java Spring Boot services. Working with AI integrations, microservices architecture, and cloud deployment.",
       "technologies": [
@@ -33,35 +33,6 @@
     },
     {
       "id": 2,
-      "company": "GeeksForLess Inc.",
-      "position": "Java Software Engineer",
-      "startDate": "Apr 2024",
-      "endDate": "Oct 2024",
-      "description": "Developed Java backend services and React frontend components, focusing on clean architecture, database optimization, and modern web development practices.",
-      "technologies": [
-        "Java",
-        "Spring Boot",
-        "Spring Data JPA",
-        "Hibernate",
-        "React",
-        "TypeScript",
-        "PostgreSQL",
-        "MySQL",
-        "REST",
-        "Maven",
-        "Spring Security",
-        "Docker",
-        "Git"
-      ],
-      "achievements": [
-        "Built responsive React components integrated with Java REST APIs",
-        "Optimized database queries and improved API response times by 25%",
-        "Implemented secure authentication flows using Spring Security",
-        "Created automated testing suites and improved code coverage to 85%"
-      ]
-    },
-    {
-      "id": 3,
       "company": "ROBOCODE",
       "position": "Embedded Development Teacher",
       "startDate": "Jun 2024",
@@ -83,11 +54,11 @@
       ]
     },
     {
-      "id": 4,
-      "company": "Inforce",
-      "position": "Full-stack Developer",
-      "startDate": "Mar 2021",
-      "endDate": "Mar 2024",
+      "id": 3,
+      "company": "Binary Studio",
+      "position": "Senior Software Engineer",
+      "startDate": "Sep 2022",
+      "endDate": "Oct 2024",
       "description": "Developed full-stack web applications using React, Node.js, and modern JavaScript ecosystem. Built real-time features, API integrations, and scalable database solutions.",
       "technologies": [
         "React",
@@ -106,6 +77,35 @@
         "Built real-time chat and notification systems using WebSockets",
         "Implemented GraphQL APIs and optimized database queries for better performance",
         "Established automated testing and CI/CD pipelines for faster deployment"
+      ]
+    },
+    {
+      "id": 4,
+      "company": "GeeksForLess Inc.",
+      "position": "Software Engineer",
+      "startDate": "May 2020",
+      "endDate": "Sep 2022",
+      "description": "Developed Java backend services and React frontend components, focusing on clean architecture, database optimization, and modern web development practices.",
+      "technologies": [
+        "Java",
+        "Spring Boot",
+        "Spring Data JPA",
+        "Hibernate",
+        "React",
+        "TypeScript",
+        "PostgreSQL",
+        "MySQL",
+        "REST",
+        "Maven",
+        "Spring Security",
+        "Docker",
+        "Git"
+      ],
+      "achievements": [
+        "Built responsive React components integrated with Java REST APIs",
+        "Optimized database queries and improved API response times by 25%",
+        "Implemented secure authentication flows using Spring Security",
+        "Created automated testing suites and improved code coverage to 85%"
       ]
     }
   ],
